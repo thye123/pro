@@ -1,7 +1,7 @@
-package DBCONNECT;
+package DreamLeagueDBConn;
 
-public class MemberVO {
-	//Field
+public class DreamLeagueVO {
+	//Feild
 	private String id;
 	private String pass;
 	private String name;
@@ -12,8 +12,8 @@ public class MemberVO {
 	private String zipcode;
 	private String address;
 	private String regdate;
-
-	//Getter,Setter
+	
+	//Getter/Setter
 	public String getId() {
 		return id;
 	}
@@ -76,10 +76,11 @@ public class MemberVO {
 	}
 	
 	//Constructor
-	public MemberVO() {}
+	public DreamLeagueVO() {}
 	
-	public MemberVO(String id, String pass, String name, String birth, String gender, String phone, String email,
-			String zipcode, String address, String regdate) {
+	//전체 정보 가져오는 생성자
+	public DreamLeagueVO(String id, String pass, String name, String birth, String gender, String phone, String email,
+			String zipcode, String address) {
 		this.id = id;
 		this.pass = pass;
 		this.name = name;
@@ -89,29 +90,6 @@ public class MemberVO {
 		this.email = email;
 		this.zipcode = zipcode;
 		this.address = address;
-		this.regdate = regdate;
-	}
-	
-	public MemberVO(String id, String name, String birth, String email, String regdate) {
-		this.id = id;
-		this.name = name;
-		this.birth = birth;
-		this.email = email;
-		this.regdate = regdate;
-	}
-	
-	//toString
-	public String toList() {
-		String fmt = "<tr>";
-		fmt		  += "<td><a href='../2018_07_20_JSP/detail.jsp'>%s</a></td>";
-		fmt		  += "<td>%s</td>";
-		fmt		  += "<td>%s</td>";
-		fmt		  += "<td>%s</td>";
-		fmt		  += "<td>%s</td>";
-		fmt		  += "</tr>";
-		
-		String msg = String.format(fmt, id, id, name, birth, email, regdate);		
-		return msg;
 	}
 	
 }

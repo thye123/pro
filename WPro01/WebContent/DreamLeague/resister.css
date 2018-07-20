@@ -3,7 +3,7 @@
 /* 전체 영역 */
 .allArea{
     width				: 1000px;
-	background-image	: url(imgs/login.jpg);
+	background-image	: url(imgs/login2.jpg);
     background-repeat	: no-repeat;
     overflow			: hidden;
     margin				: 0 auto;
@@ -224,7 +224,7 @@ label{
 #selEmail{
 	height				: 31px;
 	position			: absolute;
-	top					: 544px;
+	top					: 594px;
 	left				: 785px;
 	text-align			: center;
 }
