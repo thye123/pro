@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<style>
+		#allArea{
+			width: auto;
+			background-color: black;
+			overflow:hidden;
+			text-align: center;
+		}
+		
+		#allArea > div{
+			width:150px;
+			margin:0px;
+			padding:0px;
+			float:left;
+		}
+		
+		#allArea > div > a{
+			text-decoration: none;
+			font-weight: bold;
+			color: white;
+			font-size: 20px;
+		}
+		
+		#allArea > div > a:hover {
+			background-color: skyblue;
+			color: yellow;
+		}
+		
+		#menuNameView{
+			width: 100%;
+			height: 20%;
+			border: 1px solid black;
+		}
+		
+		p{
+			color: aqua;
+		}
+		
+	</style>
+	<script>
+		window.onload = function(){
+			var menuName = ["Home","League","Team","Player","Match","MatchResult","Rank"];
+			var aArea = document.getElementById("allArea");
+			for(var i = 0; i < menuName.length; i++){
+				var menu = document.createElement("div");
+				var a = document.createElement("a");
+				var text = document.createTextNode(menuName[i]);
+				a.setAttribute("href", "#"+menuName[i]);
+				menu.setAttribute("id", menuName[i]);
+				a.appendChild(text);
+				menu.appendChild(a);
+				aArea.appendChild(menu);
+			}
+			
+			var as = document.getElementsByTagName("a");
+			var view = document.getElementById("menuNameView");
+			for(var j = 0; j < as.length; j++){
+				as[j].onmouseover = function(){
+					alert(j);
+					var p = document.createElement("p");
+					var viewText = document.createTextNode(this.innerHTML+"입니다.");
+					p.appendChild(viewText);
+					view.appendChild(p);
+					this.onmouseout = function(){
+						view.removeChild(p);
+					}
+				}
+			}
+		}
+	</script>
+	<body>
+		<div id = "allArea"></div>
+		<div id = "menuNameView"></div>
+	</body>
+</html>

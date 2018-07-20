@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+.wrap {
+   width: 900px;
+   margin: 0 auto;
+}
+
+.searchBox, .subject_title {
+   width: 118px;
+   height: 50px;
+   background-color: gray;
+   display: inline-block;
+}
+
+.subject_title {
+   background-color: blue;
+}
+
+.subject_Box {
+   display: inline-block;
+   width: 780px;
+   height: 50px;
+   float: right;
+   background-color: #d6d69c;
+}
+
+.show_Box {
+   display: inline-block;
+   width: 780px;
+   height: 50px;
+   background-color: #e9e9e9;
+   float: right;
+}
+
+.viewBox {
+   display: inline-block;
+   background-color: orange;
+   width: 900px;
+   height: 50px;
+}
+
+.subject_view {
+   display: inline-block;
+   background-color: #aaaaec;
+   width: 900px;
+   height: 50px;
+}
+
+.s_wrap {
+   width: 900px;
+   margin: 0 auto;
+}
+
+.s_term {
+   display: inline-block;
+   width: 300px;
+   height: 250px;
+   float: left;
+   background: aliceblue;
+}
+
+.s_date {
+   width: 300px;
+   height: 250px;
+   background: gray;
+   float: left;
+}
+
+.s_time {
+   width: 300px;
+   height: 250px;
+   background: #c7c73e;
+   display: inline-block;
+}
+
+.s_bottom {
+   width: 900px;
+   margin: 0 auto;
+}
+
+.s_differ {
+   height: 260px;
+   width: 900px;
+   background: oldlace;
+}
+
+.s_differ select{
+	float: left;
+}
+
+.s_differ label{
+	float: left;
+}
+
+.s_differ input{
+	float: left;
+}
+
+.s_btnBox {
+   width: 900px;
+   height: 50px;
+   background-color: darkcyan;
+}
+
+button {
+   float: right;
+}
+
+select {
+   width: 96px;
+}
+
+input[type="submit"] {
+   width: 136px;
+   height: 45px;
+}
+
+input[type="reset"] {
+   width: 136px;
+   height: 45px;
+}
+
+.s_detailed {
+   background: silver;
+   width: 900px;
+   margin: 0 auto;
+   height: 235px; /* 차후 삭제 */
+	overflow: hidden;
+	flaot: left;
+	display: none;
+}
+
+.s_btnWrap {
+   text-align: center;
+}
+
+
+.s_gen{
+   background-color: #cea04a;
+   overflow: hidden;   
+}
+
+</style>
+
+<script>
+
+      var viewBox=document.getElementsByClassName('viewBox');
+      var subject_view=document.getElementsByClassName('subject_view');
+      
+      
+      window.onload=function(){
+      var cnt=0;
+      var obj=document.getElementsByClassName('show_Box');
+      var subject_Box=document.getElementsByClassName('subject_Box');
+      var s_detBtn=document.getElementsByClassName('s_detBtn');
+      var s_detailed =document.getElementsByClassName('s_detailed');
+      var s_gen=document.getElementsByClassName('s_gen');
+      var i=0; 
+      var height = 0;
+      
+      viewBox[0].style.display='none';
+      subject_view[0].style.display='none';
+       //s_detailed[0].style.display='none'; 
+      
+         obj[0].onclick=function(){
+            if(viewBox[0].style.display=='none'){
+               viewBox[0].style.display = 'block';
+             }else{
+                viewBox[0].style.display = 'none';
+             }
+         }
+         
+         subject_Box[0].onclick=function(){
+            if(subject_view[0].style.display=='none'){
+               subject_view[0].style.display='block';
+            }else{
+               subject_view[0].style.display='none';
+            }
+         }
+         
+
+         
+            s_detBtn[0].onclick=function(){
+                i++;
+                if(i%2==1){
+                  var id = setInterval(frame, 5);
+                   s_detailed[0].style.display='block'; 
+                 function frame() {
+                   if (height == 235) {
+                     clearInterval(id); 
+                   } else {
+                     height++; 
+                     s_detailed[0].style.height = height + 'px';
+                     for(var i=0; i<s_gen.length; i++){
+                        s_gen[i].style.height=(height-205)+'px';
+                     }
+                   }
+                 }
+               }
+                 
+                 if(i%2==0){
+                  var de= setInterval(decre , 5);
+                    function decre(){
+                       if (height == 0) {
+                           clearInterval(de); 
+                         } else {
+                           height--; 
+                           s_detailed[0].style.height = height + 'px';
+                           for(var i=0; i<s_gen.length; i++){
+                              s_gen[i].style.height=(height-205)+'px';
+                           }
+                         }                          
+                       }
+                 }
+         } 
+      }
+   
+</script>
+</head>
+<body>
+   <div class="wrap">
+      <div class="searchBox">
+         <p>지역</p>
+      </div>
+
+      <div class="show_Box"></div>
+
+      <div class="viewBox"></div>
+
+
+      <div class="subject_title">
+         <p>과목</p>
+      </div>
+
+      <div class="subject_Box"></div>
+      <div class="subject_view"></div>
+   </div>
+
+   <div class="s_wrap">
+      <div class="s_term"></div>
+      <div class="s_date"></div>
+      <div class="s_time"></div>
+   </div>
+
+   <div class="s_bottom">
+      <div class="s_differ">
+         <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+         </select> <input type="checkbox"><label>ㅁ</label> <input
+            type="checkbox"><label>문자지원</label>
+         <button class="s_detBtn">상세검색열기</button>
+
+         <div class="s_detailed">
+            <div class="s_gen">연령</div>
+            <div class="s_gen">수험기간</div>
+            <div class="s_gen">합격경험</div>
+            <div class="s_gen">우대조건</div>
+         </div>
+
+
+      </div>
+      <div class="s_btnBox">
+         <div class="s_btnWrap">
+            <input type="submit" /> <input type="reset" />
+         </div>
+      </div>
+   </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			#aTag{
+				text-decoration	: none;
+				color			: black;
+				/* border			: 1px solid black; */
+				background-color: #E9E9E9;
+				box-sizing		: border-box;
+				border-style	: ridge;
+    			border-color	: buttonface;
+    			border-image	: initial;
+			}
+			
+			#aTag:active {
+				background-color: #EF80C2;
+				color			: white;
+			}
+		</style>
+		<script type="text/javascript">
+			function btn3_click(){
+				alert('btn3 click');
+			}
+			
+			function btn4_click(){
+				p.innerHTML = "버튼 4 클릭했다.";
+				btn4.removeEventListener('click', btn4_click);
+			}
+			
+			onload = function(){
+				var p = document.getElementById("result");
+				var btn1 = document.getElementById("btn1");
+				btn1.onclick = function(){
+					location.href = "https://www.naver.com";
+				}
+				
+				var btn2 = document.getElementById("btn2");
+				btn2.onclick = function(){
+					location.href = "https://www.youtube.com";
+				}
+				
+				var btn3 = document.getElementById("btn3");
+				btn3.addEventListener('click', btn3_click);
+				//addEventListener 는 함수 명이 다르면 한번의 작업으로 연속 실행이 가능하다.
+
+				var btn4 = document.getElementById("btn4");
+				btn4.addEventListener('click', btn4_click);
+	
+				var btn5 = document.getElementById("btn5");
+				btn5.addEventListener('click', function(){
+					console.log(this);
+				});
+				
+				var btn6 = document.querySelector('#btn6');
+				btn6.addEventListener('click', function(){
+					//location.href 대신에 이거 많이 쓰는 추세다.
+					//뒤로가기가 유지 되면서 페이지 이동
+					location.assign('https://www.daum.net'); 
+
+					/* //페이지 새로 고침 -> f5랑 같음
+					location.reload(); */
+					
+					/* //뒤로가기 없이 현재를 페이지 변경
+					location.replace('https://www.daum.net'); */
+				});
+				
+				var btn7 = document.querySelector('#aTag');
+				btn7.addEventListener('click', function(e) {
+					//a tag 의 기본능력을 방해 한다. -> 페이지 이동을 막는다.
+					e.preventDefault();
+					e.pro
+					//location.assign('https://www.google.com');
+				}, true);
+			}
+		</script>
+	</head>
+	<body>
+		<h2>자바스크립트 이벤트</h2>
+		<p id="result"></p>
+		<input type="button" id="btn1" value="버튼1"><br>
+		<input type="button" id="btn2" value="버튼2"><br>
+		<input type="button" id="btn3" value="버튼3"><br>
+		<input type="button" id="btn4" value="버튼4"><br>
+		<input type="button" id="btn5" value="버튼5"><br>
+		<input type="button" id="btn6" value="다음 고고"><br>
+		<br>
+		<a href="https://www.naver.com" id="aTag">네이버로 고고</a><br>
+	</body>
+</html>

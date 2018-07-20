@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			#colArea{
+				width:200px;
+				height:200px;
+				border:1px solid black;
+			}
+		</style>
+		<script>
+			var col = ["red","orange","yellow","green","blue","navy","purple","pink", "hotpink"]
+			window.onload=function(){
+				var di = document.getElementById("main");
+				var radio = "";
+				for (var i = 0; i < col.length; i++) {
+					radio += "<label class='label1' id='"+col[i]+"'>";
+					radio += "<input type='radio' name='rdoColor' value='"+ col[i] +"'>";
+					radio += col[i] +"</label>";
+				}
+				di.innerHTML=radio;
+				
+				var radios = document.getElementsByName("rdoColor");
+				var colA = document.getElementById("colArea");
+				var labels = document.getElementsByClassName("label1");
+				
+				var result="";
+				for (var i = 0; i < radios.length; i++) {
+					radios[i].onchange=function(){
+						colA.style.backgroundColor = this.value;
+					}
+ 				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id = "main">
+		
+		</div>
+		<div id = "colArea">
+		</div>
+	</body>
+</html>

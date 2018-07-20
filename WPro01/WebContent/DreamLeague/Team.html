@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Dream League</title>
+		<link rel="stylesheet" type="text/css" href="Home.css">
+		<link rel="stylesheet" type="text/css" href="Team.css">
+
+		<script>
+			onload = function(){
+				createMenu();
+				createTeam();
+			}
+		</script>
+		
+		<!-- 팀 엠블럼 및 radio button생성 시작 -->
+		<script>
+			function createTeam(){
+				var teamLogo = document.getElementsByClassName('teamLogo');
+				var area = document.createElement('div');
+				area.setAttribute('class', 'area');
+				var teamLeague = document.getElementsByClassName('teamLeague');
+				
+				//1부리그, 2부리그 이미지 배열 생성.
+				var team1 = ['ACMilan' ,'ASMonaco' ,'Arsenal' ,'Atletico' ,'BVB' ,'Barcelona'
+					,'BayernMunich' ,'Chelsea' ,'Inter' ,'Juventus' ,'Liverpool' ,'ManCity'
+					,'Napoly' ,'PSG' ,'RBLeipzig' ,'RealMadrid' ,'Roma' ,'Sevilla' ,'Tottnum'
+					,'Valencia'];
+				
+				var team2 = ['Augsburg' ,'Betice' ,'Everton' ,'Genoa' ,'Girona' ,'Hellas'
+					,'Lazio' ,'Leicester' ,'Leverkusen' ,'Lyon' ,'ManU' ,'Marseille' ,'Porto'
+					,'Salzburg' ,'Southampton' ,'Sporting' ,'Stuttgart' ,'Swangi' ,'Villareal'
+					,'Volfs'];
+				
+				for(var i = 0; i < teamLeague.length; i++){
+					teamLeague[i].addEventListener('click', function(){
+						if(teamLeague[0]){
+							teamLeague[1].style.backgroundColor	= "white";
+							teamLeague[1].style.color 			= "black";
+							this.style.backgroundColor 			= "gray";
+							this.style.color					= "gold";
+							this.style.borderRadius 			= "5px";
+						}
+						if(teamLeague[1]){
+							teamLeague[0].style.backgroundColor ="white";
+							teamLeague[0].style.color 			= "black";
+							this.style.backgroundColor 			= "gray";
+							this.style.color					= "gold";
+							this.style.borderRadius 			= "5px";
+						}
+					});
+				};
+				
+				
+				
+				
+			}
+		</script>		
+		<!-- 팀 엠블럼 및 radio button생성 끝 -->
+		
+		<!-- 메뉴 생성 시작 -->
+		<script>
+			function createMenu(){
+				var menu 	 = ["Home","Match","Rank","Team","TransFer"];
+				var menuKor	 = ["홈으로","경기진행","순위","팀관리","이적시장"];
+				var menuArea = document.getElementsByClassName("menu"); 
+				
+				for(var i = 0; i < menu.length; i++){
+					var aTag 	 = document.createElement("a");
+					var menuText = document.createTextNode(menuKor[i]);
+					aTag.setAttribute("href", menu[i] + ".html");
+					aTag.setAttribute("id", menu[i]);
+					aTag.appendChild(menuText);
+					menuArea[0].appendChild(aTag);
+				}
+			}
+		</script>
+		<!-- 메뉴 생성 끝 -->
+	</head>
+	<body>
+		<!-- 전체 영역 시작 -->
+		<div class = "main">
+			<div class="top">
+				<!-- 타이틀 이미지 -->
+				<img alt="메인 타이틀" src="imgs/메인 타이틀.png" id="titleImg">
+				<!-- 로그인 시작 -->
+				<div class="login">
+					<div class="inputArea">
+						<p>아이디: </p>
+						<input type="text" name="userid" id="userId">
+						<input type="button" id="lBtn" value="로그인">
+						<p>비밀번호: </p>
+						<input type="password" name="userpass" id="userPass">
+					</div>
+					<div class="etcArea">
+						<a href="#" id="findId">아이디</a>
+						<p>/</p>
+						<a href="#" id="findPass">비밀번호 찾기</a> 
+						<a href="resister.html" id="register">회원가입</a>
+					</div>
+				</div>
+				<!-- 로그인 끝 -->		
+			</div>
+
+			<!-- 메뉴 시작 -->
+			<div class="menu"></div>
+			<!-- 메뉴 끝 -->
+			
+			<!-- 내용 영역 시작 -->
+			<div class="board">
+				<img alt="배경 이미지" src="imgs/main1.jpg" class="backImg">
+				<div class="teamArea">
+					<div class="teamLeague"><p>1부</p></div>
+					<div class="teamLeague"><p>2부</p></div>
+					<div class="teamLogo"></div>
+				</div>
+			</div>
+			<!-- 내용 영역 끝 -->
+			
+		</div>
+		<!-- 전체 영역 끝 -->
+		
+	</body>
+</html>

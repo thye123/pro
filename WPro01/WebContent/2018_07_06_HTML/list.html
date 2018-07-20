@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<style>
+		ul{
+			list-style-type: none; /*disc, curcle, square, none 등 4가지 존재*/
+		}
+		
+		li:nth-of-type(1) {color: red;}
+		li:nth-of-type(2) {color: blue;}
+		li:nth-of-type(3) {color: navy;}
+		li:nth-of-type(4) {color: orange;}
+	</style>
+	<script>
+		window.onload = function (){
+			var h2 = document.querySelector("h2");
+			h2.style.color = "red";
+		}
+	</script>
+	<body>
+		<h2>UnOrdered Color Name List</h2>
+		<ul>
+			<li>씨뻘건색</li>
+			<li>씨퍼런색</li>
+			<li>더씨퍼런색</li>
+			<li>덜씨뻘건색</li>
+		</ul>
+		
+		<!-- <h2>Ordered Color Name List</h2>
+		<ol>
+			<li>씨뻘건색</li>
+			<li>씨퍼런색</li>
+			<li>더씨퍼런색</li>
+			<li>덜씨뻘건색</li>
+		</ol> -->
+	</body>
+</html>

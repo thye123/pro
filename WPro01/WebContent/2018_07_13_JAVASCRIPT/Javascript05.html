@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script>
+			var cook = {
+					name	:'정봉민',
+					age		:'30',
+					part	:'사업',
+					cooking : function(board){
+						var msg = this.part + ' 전문 ' + this.name + '이(가) ' + board + '억의 사기를 칩니다.';
+						alert(msg);
+					} 
+			}
+		
+			onload = function(){
+				var p = document.getElementById('out');
+				var msg = '';
+				msg = cook;
+				/* msg	   += cook.name + ' ';
+				msg    += cook.age + ' ';
+				msg    += cook.part */;
+				//console.log(msg);
+				console.log(cook);
+				//p.innerHTML = msg;
+				p.innerHTML = JSON.stringify(cook);
+				cook.cooking(100);
+			}
+		</script>
+	</head>
+	<body>
+		<h2>객체</h2>
+		<p id="out"></p>
+	</body>
+</html>

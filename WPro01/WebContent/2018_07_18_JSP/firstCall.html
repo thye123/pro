@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<style>
+
+		</style>		
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script>
+			$(function(){
+				var go = document.getElementById('GO');
+				go.addEventListener('click', function(){
+					location.assign("http://localhost:9090/WPro01/first");
+					//location.href = "https://localhost:9090/WPro01/first"; 
+					//두개 다 똑같음
+ 				});
+				
+				$('#goSubmit').on('click', function(){
+					var gogo = document.getElementById('gogo');
+					gogo.method = "post";
+					gogo.action = "http://localhost:9090/WPro01/first";
+					gogo.submit();
+				});
+				
+				/* var goSubmit = document.getElementById('goSubmit');
+				
+				goSubmit.addEventListener('click', function() {
+					var gogo = document.getElementById('gogo');
+					gogo.method = "post";
+					gogo.action = "http://localhost:9090/WPro01/first";
+					gogo.submit();
+					//location.assign("https://localhost:9090/WPro01/first");
+				}); */
+			});
+		</script>
+	</head>
+	<body>
+		<button id="GO">가자</button>
+		<form id="gogo">
+			<button id="goSubmit">가자고쫌!</button>
+		</form>
+		<hr/>	
+		<a href="http://localhost:9090/WPro01/first">go</a>
+		<hr/>
+		<form action = "http://localhost:9090/WPro01/first" method="GET">
+			<input type="submit" value="GoGet">
+		</form>
+		
+		<hr/>
+		<form action = "http://localhost:9090/WPro01/first" method="POST">
+			<input type="submit" value="GoPost">
+		</form>
+
+		<hr/>
+		<form action = "http://localhost:9090/WPro01/first" method="PUT">
+			<input type="submit" value="GoPut">
+		</form>
+	</body>
+</html>

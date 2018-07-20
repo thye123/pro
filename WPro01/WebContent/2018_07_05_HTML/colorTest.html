@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			#box1 {
+				height:200px;
+				margin:100px;
+				width: 200px;
+			}
+		</style>
+		<script>
+			var colors = ["red","orange","yellow","green","blue","navy","purple"];
+			window.onload = function(){
+				var selColor = document.getElementById("selColor");
+				var option = "";
+				for (var i = 0; i < colors.length; i++) {
+					option += "<option>";
+					option += colors[i];
+					option += "</option>";
+				}
+				selColor.innerHTML = option;
+			}	
+		</script>
+	</head>
+	<body>
+		<select id = "selColor"></select>
+		<hr/>
+		<label><input type="radio" name="rdoColors" value="red"/>Red</label>
+		<input type="radio" name="rdoColors" value="red" id="cRed" /><label for="cRed">이것도 되네</label>
+		<label><input type="radio" name="rdoColors" value="orange"/>Orange</label>
+		<div id = "box1"></div>	 
+	</body>
+</html>

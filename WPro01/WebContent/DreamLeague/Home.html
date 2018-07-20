@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Dream League</title>
+		<link rel="stylesheet" type="text/css" href="Home.css">
+		
+		<!-- 로그인 하는거 구현 해야한다! -->
+		<!-- 나머진 그럭저럭 한듯 -->
+		
+		<script>
+			onload = function(){
+				createMenu();
+				mouseOver();
+			}
+		</script>
+		
+		<!-- 마우스 오버 이벤트 시작 -->
+		<script>
+			function mouseOver(){
+				var prev 	= document.getElementsByTagName('area');
+				var mainImg	= document.getElementById('mainImg');
+				var board 	= document.getElementsByClassName('board');
+				var map		= document.getElementsByTagName('map');
+				
+				//
+				
+				for(var i = 0; i < prev.length; i++){
+					prev[i].onmouseover = function(){
+						switch(this){
+							
+							//팀관리
+							case map[0].children.item(0):
+								//팀관리 프리뷰 생성
+								var teamA 		= document.createElement('div');
+								teamA.setAttribute('class', 'teamA');
+								var textImg		= document.createElement('img');
+								textImg.setAttribute('src', 'imgs/content.png');
+								textImg.setAttribute('id', 'conImgTeam');
+								var textP		= document.createElement('p');
+								teamA.appendChild(textP);
+								var pText		= document.createTextNode('팀관리');
+								textP.appendChild(pText);
+								var text		= document.createTextNode('이동');
+								teamA.appendChild(text);
+								
+								board[0].appendChild(textImg);
+								board[0].appendChild(teamA);
+								
+								this.onmouseout = function(){
+									board[0].removeChild(teamA);
+									board[0].removeChild(textImg);
+								}
+								break;
+							
+							//이적시장
+							case map[0].children.item(1):
+								var TransF 		= document.createElement('div');
+								TransF.setAttribute('class', 'TransF');
+								var textImg		= document.createElement('img');
+								textImg.setAttribute('src', 'imgs/content.png');
+								textImg.setAttribute('id', 'conImgTrans');
+								var textP		= document.createElement('p');
+								TransF.appendChild(textP);
+								var pText		= document.createTextNode('이적시장');
+								textP.appendChild(pText);
+								var text		= document.createTextNode('이동');
+								TransF.appendChild(text);
+								
+								board[0].appendChild(textImg);
+								board[0].appendChild(TransF);
+								
+								this.onmouseout = function(){
+									board[0].removeChild(TransF);
+									board[0].removeChild(textImg);
+								}
+								break;
+							
+							//순위
+							case map[0].children.item(2):
+								var RankR = document.createElement('div');
+								RankR.setAttribute('class', 'RankR');
+								var textImg		= document.createElement('img');
+								textImg.setAttribute('src', 'imgs/content.png');
+								textImg.setAttribute('id', 'conImgRank');
+								var textP		= document.createElement('p');
+								RankR.appendChild(textP);
+								var pText		= document.createTextNode('순위표');
+								textP.appendChild(pText);
+								var text		= document.createTextNode('이동');
+								RankR.appendChild(text);
+								
+								board[0].appendChild(textImg);
+								board[0].appendChild(RankR);
+								
+								this.onmouseout = function(){
+									board[0].removeChild(RankR);
+									board[0].removeChild(textImg);
+								}
+								break;
+							
+							case map[0].children.item(3):
+								var MatchM		= document.createElement('div');
+								MatchM.setAttribute('class', 'MatchM');
+								var textImg		= document.createElement('img');
+								textImg.setAttribute('src', 'imgs/content.png');
+								textImg.setAttribute('id', 'conImgMatch');
+								var textP		= document.createElement('p');
+								MatchM.appendChild(textP);
+								var pText		= document.createTextNode('경기장');
+								textP.appendChild(pText);
+								var text		= document.createTextNode('이동');
+								MatchM.appendChild(text);
+								
+								board[0].appendChild(textImg);
+								board[0].appendChild(MatchM);
+								
+								this.onmouseout = function(){
+									board[0].removeChild(MatchM);
+									board[0].removeChild(textImg);
+								}
+								break;
+						}//switch case
+					}//onmouseover
+				}//for
+			}//function mouseOver
+		</script>
+		<!-- 마우스 오버 이벤트 끝 -->
+
+		<!-- 메뉴 생성 시작 -->
+		<script>
+			function createMenu(){
+				var menu 	 = ["Home","Match","Rank","Team","TransFer"];
+				var menuKor	 = ["홈으로","경기진행","순위","팀관리","이적시장"];
+				var menuArea = document.getElementsByClassName("menu"); 
+				
+				for(var i = 0; i < menu.length; i++){
+					var aTag 	 = document.createElement("a");
+					var menuText = document.createTextNode(menuKor[i]);
+					aTag.setAttribute("href", menu[i] + ".html");
+					aTag.setAttribute("id", menu[i]);
+					aTag.appendChild(menuText);
+					menuArea[0].appendChild(aTag);
+				}
+			}
+		</script>
+		<!-- 메뉴 생성 끝 -->
+		
+	</head>
+	<body>
+		<!-- 전체 영역 시작 -->
+		<div class = "main">
+			<div class="top">
+				<!-- 타이틀 이미지 -->
+				<img alt="메인 타이틀" src="imgs/메인 타이틀.png" id="titleImg">
+				<!-- 로그인 시작 -->
+				<div class="login">
+					<div class="inputArea">
+						<p>아이디: </p>
+						<input type="text" name="userid" id="userId">
+						<input type="button" id="lBtn" value="로그인">
+						<p>비밀번호: </p>
+						<input type="password" name="userpass" id="userPass">
+					</div>
+					<div class="etcArea">
+						<a href="#" id="findId">아이디</a>
+						<p>/</p>
+						<a href="#" id="findPass">비밀번호 찾기</a> 
+						<a href="resister.html" id="register">회원가입</a>
+					</div>
+				</div>
+				<!-- 로그인 끝 -->		
+			</div>
+
+			<!-- 메뉴 시작 -->
+			<div class="menu"></div>
+			<!-- 메뉴 끝 -->
+			
+			<!-- 내용 영역 시작 -->
+			<div class="board">
+				<img alt="감독실" src="imgs/main.png" id="mainImg" usemap="#gandi">
+				<map name="gandi">
+					<area shape="rect" alt="팀관리" coords="410,228,600,335" href="Team.html">
+					<area shape="rect" alt="이적시장" coords="614,342,699,395" href="TransFer.html">
+					<area shape="rect" alt="순위" coords="290,230,330,268" href="Rank.html">
+					<area shape="circle" alt="경기진행" coords="338,585,40" href="Match.html">
+				</map>
+			</div>
+			<!-- 내용 영역 끝 -->
+			
+		</div>
+		<!-- 전체 영역 끝 -->
+		
+	</body>
+</html>

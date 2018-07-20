@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			div{
+				border: 1px solid black;
+				border-radius: 5px;
+				width : 250px;
+				height: 150px;
+				margin: 5px;
+				padding:0;
+				float:left;
+			}
+			
+			ul{
+				margin:0 auto;
+				margin-top:10px;
+				margin-left:20px;
+				padding:0;
+			}
+
+			li{
+				display:block;
+			}
+			
+			li:nth-of-type(1){
+				color: skyblue;
+				font-weight: bold;
+			}
+			
+			li:nth-last-of-type(1) {
+				color: red;
+				font-weight: bold;
+			}
+			
+		</style>
+		<script>
+			//Constructor Function
+			function Team(team, att, mid, def){
+				this.team	 = team;
+				this.att	 = att;
+				this.mid	 = mid;
+				this.def	 = def;
+			}
+			
+			Team.prototype.getSat  = function(){
+				return this.att + this.mid + this.def;
+			}
+			
+			Team.prototype.getAvg  = function(){
+				var Avg = (this.att + this.mid + this.def)/3;
+				return Avg.toFixed(2);
+			}
+			
+			Team.prototype.toString = function(){
+				var msg = '<div>';
+				msg	   += 	'<ul>';
+				msg	   += 		'<li>팀명: ' + this.team +'</li>';
+				msg	   += 		'<li>공격: ' + this.att +'</li>';
+				msg	   += 		'<li>미들: ' + this.mid +'</li>';
+				msg	   += 		'<li>수비: ' + this.def +'</li>';
+				msg	   += 		'<li>총점: ' + this.getSat() +'</li>';
+				msg	   += 		'<li>평균: ' + this.getAvg() +'</li>';
+				msg	   += 	'</ul>';
+				msg	   += '</div>';
+				return msg;
+			}
+			
+			onload = function(){
+				var team = [];
+				team.push(new Team('레알마드리드', 97, 96, 92));
+				team.push(new Team('유벤투스', 90, 90, 95));
+				team.push(new Team('바르셀로나', 98, 94, 88));
+				team.push(new Team('AC밀란', 84, 80, 85));
+				team.push(new Team('바이에른뮌헨', 96, 92, 93));
+				team.push(new Team('아틀레티코마드리드', 92, 91, 90));
+				team.push(new Team('맨체스터유나이티드', 87, 80, 70));
+				team.push(new Team('맨체스터시티', 96, 94, 94));
+				team.push(new Team('첼시', 92, 95, 94));
+				team.push(new Team('토트넘', 93, 89, 92));
+				
+				var msg = '';
+				for(var i = 0; i < team.length; i++){
+					msg += team[i].toString();
+				}
+				document.body.innerHTML = msg;
+			}
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

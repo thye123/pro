@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			ul{
+				padding:0;
+			}
+			
+			li{
+				display: block;
+			}
+		</style>
+		<script>
+			function ConFunc(name, part){
+				this.name	= name;
+				this.part 	= part;
+				
+				this.cooking= function(food){
+					var msg = this.part + '전문 ' + this.name + '이(가) ' + food + ' 요리를 합니다.';
+					var text= document.createTextNode(msg);
+					//var out = document.getElementById('out');
+					var liT = document.createElement('li');
+					
+					var out = document.querySelector('#out > ul')
+					liT.appendChild(text);
+					out.appendChild(liT);
+				}
+			}
+		
+			function objInfo(obj){
+				//채게 정보보기(for)
+				var output = '';
+				//객체를 출력할때 for each 문 활용 가능하다.
+				//javascript에도 이게 있다.
+				for(var key in obj){
+					if(typeof obj[key] != 'function'){//이거 쓸빠에 JSON.stringify 쓴다.
+						output += '● ' + key + ': ' + obj[key] + '\n';
+					}else{
+						output += '● ' + key + ': ' + 'function(){}' + '\n';
+					}
+				}
+				alert(output);
+				
+				//JSON.stringify
+				alert(JSON.stringify(obj));				
+			}
+			
+			onload = function(){				
+				var cook = [
+					new ConFunc('민푸훗', '푸훗'),
+					new ConFunc('은만개', '만개'),
+					new ConFunc('봉금니', '금니'),
+				    new ConFunc('성재니', '재니')
+				];
+				
+				var food = ['푸후후훗', '잇몸만개', '금니빨', '메이플'];
+								
+				for(var i = 0; i < cook.length; i++){
+					cook[i].cooking(food[i]);
+					objInfo(cook[i]);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h2>생성자 함수를 이용한 객체 처리</h2>
+		<div id="out">
+			<ul></ul>
+		</div>
+	</body>
+</html>

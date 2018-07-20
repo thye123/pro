@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<style>
+
+		</style>		
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script>
+			$(function(){
+				/* $('p:nth-of-type(1)').css('color', 'red'); */
+				$('p:nth-of-type(1)').css({
+					color 				: 'gold',
+					'background-color'	: 'royalblue'					
+				});
+				
+				$('p').click(function(){
+					alert($(this).html());
+				});
+				
+				$('button').click(function(){
+					//alert('P씨방');
+					$('button').css('color','red');//버튼 전체 바꿀때
+					$(this).css('color','red');//클릭한거 하나만 바꿀때
+				});
+				
+				//var div = document.getElementsByTagName('div');
+				$('#btn').click(function(){
+					//$(div[0]).html('김씨발');	
+					var div = $('div:nth-of-type(2)')
+					div[0].innerHTML = '김씨발';
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<p>눌리라!</p>
+		<p>눌리라고!</p>
+		<p>눌리라했다!</p>
+		<button>버튼</button>
+		<button>버튼2</button>
+		<button>버튼3</button>
+		<input type="button" id="btn" value="눌리라">
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

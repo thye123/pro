@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			.top{
+				font-family: 나눔고딕;
+				font-size: 30px;
+				font-weight: bold;
+				margin:0 auto;
+				margin-top:20px;
+				text-align: center;
+			}
+			
+			.top p{
+				display: inline-block;
+			}
+			
+			.main{
+				width:500px;
+				height:500px;
+				border:1px solid black;
+				border-radius: 5px;
+				margin:0 auto;
+			}
+			
+			.imgs{
+				display:none;
+			}
+			
+			img{
+				width:500px;
+				height:500px;
+				border-radius: 5px;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var col = ["red","orange","yellow","green","blue","navy","purple","pink"];
+				var top = document.getElementsByClassName("top");
+				var p 	= top[0].children;
+				var j;
+				for(j = 0; j < col.length; j++){
+					p[j].style.color = col[j];
+				}
+				
+				var cnt = 0;
+				slide();
+				function slide(){
+					var imgs = document.getElementsByClassName("imgs");
+					var i;
+					for(i = 0; i < imgs.length; i++){
+						imgs[i].style.display = "none";
+					}
+					cnt++;
+					if(cnt > imgs.length){cnt=1;}
+					imgs[cnt-1].style.display = "block";
+					
+					setTimeout(slide, 2000);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="top">
+			<p>※</p>
+			<p>만</p>
+			<p>개</p>
+			<p>의 </p>
+			<p>갤</p>
+			<p>러</p>
+			<p>리</p>
+			<p>※</p>
+		</div>
+		<div class="main">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/1.jpg">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/2.png">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/3.jpg">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/4.png">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/5.jpg">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/6.png">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/7.png">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/8.jpg">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/9.jpg">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/10.jpg">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/11.jpg">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/12.gif">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/13.jpg">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/14.gif">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/15.png">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/16.jpg">
+			<img class="imgs" src="http://localhost:9090/WPro01/2018_07_10_HTML/17.gif">
+		</div>
+	</body>
+</html>

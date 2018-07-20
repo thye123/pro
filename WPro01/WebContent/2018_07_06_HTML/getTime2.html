@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			p{
+				display:inline-block;
+				float: left;
+				margin-left:10px;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var week  = ["일","월","화","수","목","금","토"];
+				var div   = document.getElementsByTagName("div")[0];
+				var msg   = "";
+				
+				var today = new Date();
+				var year  = today.getFullYear();
+				var month = today.getMonth();
+				var date  = today.getDate();
+				var day   = today.getDay();
+				var hour  = today.getHours();
+				var min   = today.getMinutes();
+				var sec   = today.getSeconds();
+				var mil   = today.getMilliseconds();
+				
+				msg += "<p>" + year  	 + "년도</p>";
+				msg += "<p>" + (month+1) + "월</p>";
+				msg += "<p>" + date 	 + "일</p>";
+				msg += "<p>" + week[day] + "요일</p>";
+				msg += "<p>" + hour		 + "시</p>";
+				msg += "<p>" + min   	 + "분</p>";
+				msg += "<p>" + min  	 + "</p>";
+				msg += "<p>" + mil  	 + "초</p>";
+				
+				div.innerHTML = msg;
+							
+				var div2 = document.getElementsByTagName("div")[1];
+				msg = "<p>"  + today.toString() + "</p>";
+				msg += "<p>" + today.toDateString() + "</p>";
+				msg += "<p>" + today.toISOString() + "</p>";
+				msg += "<p>" + today.toLocaleString() + "</p>";
+				msg += "<p>" + today.toLocaleDateString() + "</p>";
+				msg += "<p>" + today.toLocaleTimeString() + "</p>";
+				
+				div2.innerHTML = msg;
+				
+				var t1 = new Date();
+				var v  = 0;
+				for( var i = 1; i <= 1000000; i++){
+					v+=10.21233*8.6789/123.456;
+				}
+				var t2 = new Date();
+				alert(t2-t1);//milisecond
+ 			}
+		</script>
+	</head>
+	<body>
+		<h2>시간 날짜</h2>
+		<div></div>
+		<div></div>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			div{
+				border			: 1px solid hotpink;
+				border-radius	: 10px;
+				width			: 300px;
+				padding			: 20px;				
+			}
+		</style>
+		<script>
+			function f1(){
+				var num 	= 1;
+				var name 	= "Ronaldo";
+				var email 	= "juventus7@seriaA.com";
+				var tel		= "000-0000-0000";
+				
+				var p1 		= document.getElementById("p1");
+				p1.innerHTML= num;
+				var p2 		= document.getElementById("p2");
+				p2.innerHTML= name;
+				var p3 		= document.getElementById("p3");
+				p3.innerHTML= email;
+				var p4 		= document.getElementById("p4");
+				p4.innerHTML= tel;				
+			}
+			
+			function f2(){
+				var person	= {
+					num 	: 1,
+					name	:"Ronaldo",
+					email	:"juventus7@seriaA.com",
+					tel		:"000-0000-0000",
+					toString:function(){
+						var msg = '';
+						msg	   += this.num 		+ ',';
+						msg	   += this.name 	+ ',';
+						msg	   += this.email	+ ',';
+						msg	   += this.tel;
+						return msg;
+					}
+				};
+				console.log(person);
+				
+				alert(person.toString());
+				
+				var p1 		= document.getElementById("p1");
+				p1.innerHTML= person.num;
+				var p2 		= document.getElementById("p2");
+				p2.innerHTML= person.name;
+				var p3 		= document.getElementById("p3");
+				p3.innerHTML= person.email;
+				var p4 		= document.getElementById("p4");
+				p4.innerHTML= person.tel;
+			}
+		
+			onload = function(){
+				//f1();
+				f2();
+			}
+		</script>
+	</head>
+	<body>
+		<h2>객체 연습</h2>
+		<div class="person">
+			<p id="p1"></p>
+			<p id="p2"></p>
+			<p id="p3"></p>
+			<p id="p4"></p>
+		</div>
+	</body>
+</html>

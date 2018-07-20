@@ -1,0 +1,284 @@
+@charset "UTF-8";
+
+/* 전체 영역 시작 */
+.main{
+	width			: 1000px;
+	height			: auto;
+	margin			: 0 auto;
+	margin-top		: 30px;
+	border			: 1px solid black;
+	border-radius	: 5px; 
+	overflow		: hidden; 
+}
+/* 전체 영역 끝 */
+
+/* 상단 영역 시작 */
+.top{
+	width			: 1000px;
+	height			: 85px;
+	overflow		: hidden;
+	border-bottom	: 1px solid black;  
+}
+/* 상단 영역 끝 */
+
+/* 타이틀 이미지 시작 */
+#titleImg{
+	width			: 698px;
+	height			: 82px;
+}
+/* 타이틀 이미지 끝 */
+
+/* 로그인 영역 시작 */
+.login{
+	width			: 300px;
+	height			: 80px;
+	float			: right;
+	overflow		: hidden;
+}
+
+.inputArea{
+	width			: 293px;
+	height			: 60px;
+	overflow		: hidden;
+	float			: left; 
+}
+
+.inputArea p{
+	display			: inline-block;
+	margin			: 0;
+	width			: 70px;
+	text-align		: right;
+	font-family		: 나눔고딕;
+	font-weight		: bold;
+}
+
+#userId{
+	margin-top		: 3px;
+	width			: 150px;
+	height			: 20px;
+	border-radius	: 3px; 
+}
+
+#userPass{
+	width			: 150px;
+	height			: 20px;
+	border-radius	: 3px; 
+}
+
+#lBtn{
+	margin-top		: 3px;
+	width			: 60px;
+	height			: 52px;
+	border-radius	: 3px; 
+    border-style	: groove;
+	float			: right;
+}
+
+.etcArea{
+	width			: 293px;
+	height			: 21px;
+}
+
+.etcArea p{
+	display			: inline-block;
+	margin			: 0;
+}
+
+#findId{
+	margin-left		: 55px;
+}
+
+.etcArea p{
+	font-family		: 나눔고딕;
+	font-weight		: bold;
+}
+
+.etcArea a{
+	text-decoration : none;
+	font-family		: 나눔고딕;
+	font-weight		: bold;
+}
+
+.etcArea a:hover{
+	color			: lightgray; 	
+}
+
+/* 로그인 영역 끝 */
+
+/* 메뉴 영역 시작 */
+.menu{
+	width 			: 1000px;
+	height			: 50px;
+	margin			: 0 auto;
+	text-align		: center; 
+	border-bottom	: 1px solid black; 
+}
+
+ .menu a{
+ 	color			: firebrick;
+	text-decoration	: none;
+	display			: inline-block;
+	width			: 200px;
+	font-family		: 나눔고딕;
+	font-size		: 20px;
+	font-weight		: bold;
+	line-height		: 50px; 
+}
+
+.menu a:hover{
+	color			: white;
+	background-color: #3B88C3;
+	font-family		: 나눔고딕;
+	font-size		: 25px;
+	font-weight		: bold;
+	border-radius	: 3px; 
+}
+/* 메뉴 영역 끝 */
+
+/* 내용 영역 시작 */
+.board{
+	width			: 1000px;
+	height			: 700px;
+	overflow		: hidden;
+}
+
+#mainImg{
+	width			: 1000px;
+	height			: 700px; 	
+	position		: relative;
+}
+
+/* 팀 관리 미리보기 시작 */
+.teamA{
+	width			: 200px;
+	text-align		: center;
+	font-family		: d2coding;
+	font-size		: 15px;
+	font-weight		: bold;
+	color			: white;
+	display			: inline-block;
+	position		: absolute; 
+	top				: 345px;
+    left			: 547px;
+}
+
+.teamA p{
+	display			: inline-block;
+	font-size		: 20px;
+	font-family		: 나눔고딕;
+	font-weight		: bold;
+	color			: gold;
+	margin			: 0;
+}
+
+#conImgTeam{
+	width			: 200px;
+	height			: 80px;
+	position		: absolute;
+	opacity			: 0.7; 
+	top				: 328px;
+    left			: 545px;  
+}
+/* 팀 관리 미리보기 끝 */
+
+/* 이적시장 미리보기 시작 */
+.TransF{
+	width			: 200px;
+	text-align		: center;
+	font-family		: d2coding;
+	font-size		: 15px;
+	font-weight		: bold;
+	color			: white;
+	display			: inline-block;
+	position		: absolute;
+	top				: 458px;
+	left			: 730px; 
+}
+
+.TransF p{
+	display			: inline-block;
+	font-size		: 20px;
+	font-family		: 나눔고딕;
+	font-weight		: bold;
+	color			: gold;
+	margin			: 0;
+}
+
+#conImgTrans{
+	width			: 150px;
+	height			: 80px;
+	position		: absolute;
+	opacity			: 0.7;
+	top				: 442px;
+	left			: 752px; 
+}
+/* 이적시장 미리보기 끝 */
+
+/* 순위 미리 보기 시작 */
+.RankR{
+	width			: 200px;
+	text-align		: center;
+	font-family		: d2coding;
+	font-size		: 15px;
+	font-weight		: bold;
+	color			: white;
+	display			: inline-block;
+	position		: absolute;
+	top				: 340px;
+	left			: 385px;
+}
+
+.RankR p{
+	display			: inline-block;
+	font-size		: 20px;
+	font-family		: 나눔고딕;
+	font-weight		: bold;
+	color			: gold;
+	margin			: 0;
+}
+
+#conImgRank{
+	width			: 120px;
+	height			: 80px;
+	position		: absolute;
+	opacity			: 0.7;
+	top				: 325px;
+	left			: 425px;
+}
+/* 순위 미리 보기 끝 */
+
+/* 경기진행 미리 보기 시작 */
+.MatchM{
+	width			: 200px;
+	text-align		: center;
+	font-family		: d2coding;
+	font-size		: 15px;
+	font-weight		: bold;
+	color			: white;
+	display			: inline-block;
+	position		: absolute;
+	top				: 660px;
+	left			: 398px;
+}
+
+.MatchM p{
+	display			: inline-block;
+	font-size		: 20px;
+	font-family		: 나눔고딕;
+	font-weight		: bold;
+	color			: gold;
+	margin			: 0;
+}
+
+#conImgMatch{
+	width			: 120px;
+	height			: 80px;
+	position		: absolute;
+	opacity			: 0.7;
+	top				: 645px;
+	left			: 436px;
+}
+
+/* 경기진행 미리 보기 끝 */
+
+/* 내용 영역 끝 */

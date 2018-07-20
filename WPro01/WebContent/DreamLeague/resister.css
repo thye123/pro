@@ -1,0 +1,288 @@
+@charset "UTF-8";
+
+/* 전체 영역 */
+.allArea{
+    width				: 1000px;
+	background-image	: url(imgs/login.jpg);
+    background-repeat	: no-repeat;
+    overflow			: hidden;
+    margin				: 0 auto;
+}
+
+/* ------------------------------------------------------------- */
+
+/* 상단 영역 */
+.titleArea{
+	width				: 500px;
+	height				: 50px;
+	text-align			: center;
+	overflow			: hidden;
+	margin				: 0 auto;
+	font-size			: 25px;
+	margin-top			: 30px;
+	font-family			: monospace;
+}
+
+.titleArea p{
+	margin				: 0;
+	padding				: 0;
+	line-height			: 50px;
+	color				: white;
+}
+
+/* ------------------------------------------------------------- */
+
+/* 내용 영역 */
+.boardArea{
+	width				: 500px;
+	height				: auto;
+	margin				: 0 auto;
+	margin-bottom		: 50px;		
+}
+
+.boardArea p{
+    font-family			: 나눔고딕;
+    width				: 100px;
+    color				: white;
+    display				: inline-block;
+    text-align			: right;
+    font-size			: 15px;	
+}
+
+/* 공통 영역 */
+.Area{
+	margin-top			: 10px;
+	width				: 500px;
+    height				: 40px;
+    overflow			: hidden;
+}
+
+.tFeild{
+	margin				: 0;
+	line-height			: 40px;
+	font-weight			: bold;
+}
+
+span{
+	color				: white;
+	font-family			: 나눔고딕;
+	font-weight			: bold;
+	font-size			: 25px;
+	vertical-align		: sub;
+}
+
+input{
+	border-radius		: 7px;
+	border				: 2px solid lightgray;
+}
+
+select{
+	border-radius		: 7px;
+	border				: 2px solid lightgray;
+}
+
+label{
+	border-radius		: 7px;
+	border				: 2px solid lightgray;
+}
+/* ------------------------------------------------------------- */
+
+/* 아이디 영역 */
+.idArea{
+	margin-top			: 40px;
+	width				: 500px;
+	height				: 40px;
+	overflow			: hidden;
+}
+
+#uId{
+    top					: 2px;
+    left				: 105px;
+    height				: 25px;
+}
+
+#idCheck{
+    top					: 2px;
+    left				: 283px;
+    height				: 31px;
+    font-weight			: bold;
+    text-align			: center; 
+    font-family			: 나눔고딕;
+}
+
+/* ------------------------------------------------------------- */
+
+/* 패스워드 영역 */
+#pass{
+	width				: 130px;
+	height				: 25px;
+}
+
+#passCheck{
+	width				: 130px;
+	height				: 25px;
+}
+
+/* ------------------------------------------------------------- */
+
+/* 이름 영역 */
+#uName{
+	height				: 25px;	
+}
+
+/* ------------------------------------------------------------- */
+
+/* 생년월일 영역 */
+#uBirth{
+	width				: 168px;
+	height				: 27px;
+}
+
+/* ------------------------------------------------------------- */
+
+/* 성별 선택 영역 */
+.gdiv{
+	display				: inline-block;	
+}
+
+/* 여자 영역 */
+#femalelb{
+	width				: 70px;
+    height				: 30px;
+    background-color	: white;
+    cursor				: pointer;
+    display				: inline-block;
+    text-align			: center;
+    line-height			: 30px;
+    font-size			: 15px;
+    font-weight			: bold;
+    position			: relative;
+}
+
+#woman{
+	position			: absolute;
+	width				: 0;
+	background-color	: white;
+}
+
+/* ------------------------------------------------------------- */
+
+/* 남자 영역 */
+#malelb{
+    width				: 70px;
+    height				: 30px;
+    background-color	: white;
+    cursor				: pointer;
+    display				: inline-block;
+    text-align			: center;
+    line-height			: 30px;
+    font-size			: 15px;
+    font-weight			: bold;
+    position			: relative;
+}
+
+#man{
+	position			: absolute;
+	width				: 0;
+	background-color	: white;
+}
+
+/* ------------------------------------------------------------- */
+
+/* 선택 효과 */
+:root .gdiv input:checked+label{
+	border				: 1px solid purple;
+	margin				: -1px;
+	color				: purple;
+}
+
+/* ------------------------------------------------------------- */
+
+/* 전화번호 영역 */
+#fNum{
+	height				: 32px;
+}
+
+#sNum,#tNum{
+	width				: 70px;
+	height				: 25px;
+}
+
+/* ------------------------------------------------------------- */
+
+/* 이메일 영역 */
+#uEmail{
+	width				: 120px;
+	height				: 25px;
+}
+
+#lEmail{
+	width				: 120px;
+	height				: 25px;
+}
+
+#selEmail{
+	height				: 31px;
+	position			: absolute;
+	top					: 544px;
+	left				: 785px;
+	text-align			: center;
+}
+
+/* ------------------------------------------------------------- */
+
+/* 우편번호 영역 */
+.adressArea{
+	width				: 500px;
+    height				: 150px;
+    overflow			: hidden;
+}
+
+.adressArea p{
+	margin				: 0;
+	font-weight			: bold;
+}
+
+#uZipcode{
+	margin-top			: 10px;
+	width				: 70px;
+	height				: 25px;
+}
+
+#aBtn{
+	height				: 31px;
+	font-weight			: bold;
+    font-family			: 나눔고딕;
+    margin-right		: 180px;
+    vertical-align		: bottom;
+}
+
+#adress{
+	margin-top			: 10px;
+	width				: 350px;
+	height				: 25px;
+}
+
+#dAdress{
+	margin-top			: 10px;
+	width				: 250px;
+	height				: 25px;
+}
+
+/* ------------------------------------------------------------- */
+
+/* 최종 버튼 영역 */
+#oBtn{
+	height				: 36px;
+	margin				: 0 auto;
+	font-weight			: bold;
+    font-family			: 나눔고딕;
+    margin-left			: 205px;
+    margin-bottom		: 30px;
+}
+
+#cBtn{
+	height				: 36px;
+	font-weight			: bold;
+    font-family			: 나눔고딕;
+}

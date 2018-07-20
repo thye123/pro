@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			img{
+				opacity: 0.5;
+				border-radius: 5px;	
+			}
+			
+			img:hover{
+				opacity: 1;
+			}
+		</style>
+		<script>
+			function disp(msg){
+				var out = document.getElementById("out");
+				out.innerHTML = "<h3>" + msg + "</h3>";
+			}
+			
+			var cnt = 0;
+
+			function slide(){
+				var img	 = document.getElementsByTagName("img");
+				var i;
+				for(i = 0; i < img.length; i++){
+					img[i].style.opacity = "0.5";
+				}
+				cnt++;
+				
+				if(cnt > img.length){
+					cnt = 1;
+				}
+				img[cnt-1].style.opacity = "1";
+				
+				//disp(imgs[cnt-1]);
+				var msg  = "<div>id:"  + img[cnt-1].id + "</div>";
+					msg	+= "<div>alt:" + img[cnt-1].alt + "</div>";
+					msg += "<div>src:" + img[cnt-1].src + "</div>";
+				disp(msg);
+				setTimeout(slide, 1000);
+			}
+			
+			/*function disp(img){
+				var out 	  = document.getElementById("out");
+				var msg		  = "<li>id:"   + img.id  + "</li>";
+					msg	     += "<li>alt:"  + img.alt + "</li>";
+					msg 	 += "<li>src:"  + img.src + "</li>";
+				out.innerHTML = "<h3>" 		+ msg     + "</h3>";
+			} */
+			
+			window.onload = function(){
+				/* 				
+					var img2 = document.getElementById("img2");
+					console.log(img2);
+				 */				
+				/* var imgs = document.getElementsByTagName("img");				 
+				var out	 = document.getElementById("out");
+				//마우스 오버 시 메세지 바꾸기
+				for(var j = 0; j < imgs.length; j++){
+					imgs[j].onmouseover = function(){
+						disp(this);
+					}
+					imgs[j].onmouseout = function(){
+						out.innerHTML="";
+					}
+				} */
+				var imgs = document.querySelector("img");				 
+				
+				slide();
+			}			
+		</script>
+	</head>
+	<body>
+		<div id="out"></div>
+		<img id="img1" src="../imgs/12.gif" height="200px" width="200px" alt="그림1">	
+		<img id="img2" src="../imgs/14.gif" height="200px" width="200px" alt="그림2">	
+		<img id="img3" src="../imgs/17.gif" height="200px" width="200px" alt="그림3">	
+		<img id="img4" src="../imgs/18.gif" height="200px" width="200px" alt="그림4">	
+		<img id="img5" src="../imgs/19.gif" height="200px" width="200px" alt="그림5">	
+		<img id="img6" src="../imgs/20.gif" height="200px" width="200px" alt="그림6">	
+		<img id="img7" src="../imgs/21.gif" height="200px" width="200px" alt="그림7">	
+		<img id="img8" src="../imgs/22.gif" height="200px" width="200px" alt="그림8">	
+		<img id="img9" src="../imgs/23.gif" height="200px" width="200px" alt="그림9">	
+		<img id="img10" src="../imgs/24.gif" height="200px" width="200px" alt="그림10">	
+		<img id="img11" src="../imgs/25.gif" height="200px" width="200px" alt="그림11">	
+		<img id="img12" src="../imgs/26.gif" height="200px" width="200px" alt="그림12">
+	</body>
+</html>

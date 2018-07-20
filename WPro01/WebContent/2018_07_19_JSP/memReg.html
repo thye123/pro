@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Member Register</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<style>
+			th{
+				text-align: right;
+			}
+		</style>		
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script>
+			$(function(){
+				
+			});
+		</script>
+	</head>
+	<body>
+		<h1>회원가입</h1>
+		<!-- "regMember.jsp" -->
+		<form id="regOK" action="http://210.119.12.221:9090/WPro01/memreg" method="post">
+			<table>
+				<tr>
+					<th>아이디</th>
+					<td><input type="text" name="userid"></td>
+				</tr>
+				<tr>
+					<th>비밀번호</th>
+					<td><input type="password" name="userpass"></td>
+				</tr>
+				<tr>
+					<th>이름</th>
+					<td><input type="text" name="username"></td>
+				</tr>
+				<tr>
+					<th>이메일</th>
+					<td><input type="text" name="usermail"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="가입"></td>
+				</tr>
+			</table>
+			<a href="http://210.119.12.221:9090/WPro01/memreg?userid=%E3%84%B4%E3%85%81%E3%85%87&userpass=asd&username=%E3%85%81%E3%84%B4%E3%85%87&usermail=%E3%85%81%E3%84%B4%E3%85%87">가라</a>
+		</form>
+	</body>
+</html>

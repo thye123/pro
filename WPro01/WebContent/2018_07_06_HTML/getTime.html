@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!-- <meta http-equiv="refresh" content="1"> -->
+		<title>Insert title here</title>
+		<script>
+			window.onload = function(){
+				var p = document.getElementsByTagName("p");
+				//var p = document.getElementsByTagName("p")[0]; 요기에 붙이도 된다.
+				setInterval(function() {
+					var today = new Date();
+					p[0].innerHTML = today.toLocaleString();
+				}, 1000)
+			}
+		</script>
+	</head>
+	<body>
+		<h2>현재 시간</h2>
+		<p></p>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<style>
+
+		</style>		
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script>
+			$(function(){
+				var content =[
+					{name:'사쿠라', region:'도쿄'}
+					,{name:'정은이', region:'평양'}
+					,{name:'움바페', region:'파리'}
+				];
+				
+				$('div').append(function(index){
+					var item = content[index];
+					var msg	 = '';
+					msg		+= '<h1>' + item.name + '</h1>';					
+					msg		+= '<p>' + item.region + '</p>';
+					return msg;
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			onload = function(){
+				var student = [];
+				student.push({이름:'"레알"', 공격:97, 미들:95, 수비:94, 키퍼:90});						
+				student.push({이름:'"유베"', 공격:90, 미들:90, 수비:95, 키퍼:98});						
+				student.push({이름:'"바셀"', 공격:98, 미들:94, 수비:88, 키퍼:87});						
+				student.push({이름:'"밀란"', 공격:84, 미들:80, 수비:85, 키퍼:92});						
+				student.push({이름:'"뮌헨"', 공격:96, 미들:92, 수비:93, 키퍼:95});						
+				student.push({이름:'"아틀"', 공격:92, 미들:91, 수비:90, 키퍼:96});						
+				student.push({이름:'"맨유"', 공격:87, 미들:80, 수비:70, 키퍼:94});
+				
+				
+				console.log(student);
+				
+				var msg = '';
+				for(var i = 0; i < student.length; i++){
+					student[i].getSum = function(){
+						return this.공격 + this.미들 + this.수비 + this.키퍼;
+					}
+					
+					student[i].getAvg = function(){
+						var avg = (this.공격 + this.미들 + this.수비 + this.키퍼)/4;
+						return avg.toFixed(2);
+					}
+					
+					student[i].toString = function(){
+						return '이름: ' + this.이름 + ' 총점: ' + this.getSum() + ' 평균: ' + this.getAvg();
+					}
+					msg += student[i].toString()+'<br>';
+				}
+				
+				document.body.innerHTML = msg;
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

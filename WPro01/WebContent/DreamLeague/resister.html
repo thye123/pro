@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Dream League</title>
+		<link rel="stylesheet" type="text/css" href="Home.css">
+		<link rel="stylesheet" type="text/css" href="resister.css">
+		<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+		<script>
+			window.onload = function(){
+				createMenu();
+				//아이디 중복확인
+				var idCheck 	= document.getElementById("idCheck");
+				var idCheckCnt	= 0;
+				idCheck.onclick = function(){
+					window.open("idcheck.html", "name=newWindow", "left=750,top=300,resizeble=no,width=300,height=300");
+					idCheckCnt++;
+				}
+				
+				//이메일 뒷주소 가져오기
+				var selEmail = document.getElementById("selEmail");
+				var lasEmail = document.getElementById("lEmail");
+				selEmail.onchange = function(){
+					lasEmail.value = selEmail.value;
+				}
+				
+				//우편번호 확인
+				var themeObj = {
+					bgColor: "#162525", //바탕 배경색
+					searchBgColor: "#162525", //검색창 배경색
+					contentBgColor: "#162525", //본문 배경색(검색결과,결과없음,첫화면,검색서제스트)
+					pageBgColor: "#162525", //페이지 배경색
+					textColor: "#FFFFFF", //기본 글자색
+					queryTextColor: "#FFFFFF", //검색창 글자색
+					outlineColor: "#444444"
+				};
+				var zipCode = document.getElementById("aBtn");
+				zipCode.onclick = function(){
+					new daum.Postcode({
+				        oncomplete: function(data) {
+				        	 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+			                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+			                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+			                var fullAddr = ''; // 최종 주소 변수
+			                var extraAddr = ''; // 조합형 주소 변수
+
+			                // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+			                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+			                    fullAddr = data.roadAddress;
+
+			                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+			                    fullAddr = data.jibunAddress;
+			                }
+
+			                // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+			                if(data.userSelectedType === 'R'){
+			                    //법정동명이 있을 경우 추가한다.
+			                    if(data.bname !== ''){
+			                        extraAddr += data.bname;
+			                    }
+			                    // 건물명이 있을 경우 추가한다.
+			                    if(data.buildingName !== ''){
+			                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+			                    }
+			                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+			                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+			                }
+
+			                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+			                document.getElementById('uZipcode').value = data.zonecode; //5자리 새우편번호 사용
+			                document.getElementById('adress').value = fullAddr;
+
+			                // 커서를 상세주소 필드로 이동한다.
+			                document.getElementById('dAdress').focus();				        	
+				        },
+						theme: themeObj
+				    }).open();
+				}
+				
+				//입력값 확인
+				var form = document.getElementById("form");
+				form.onsubmit = function(){
+					var userId 		= document.getElementById("uId");
+					var userPass	= document.getElementById("pass");
+					var passCheck	= document.getElementById("passCheck");
+					var userName	= document.getElementById("uName");
+					var userBirth	= document.getElementById("uBirth");
+					
+					if(userId.value == ""){
+						alert("아이디를 입력해 주세요.");
+						return false;
+					}else{
+						if(idCheckCnt < 1){
+							alert("아이디 중복 확인 해주세요.");
+							return false;
+						}else{
+							if(userPass.value == "" || passCheck.value == ""){
+								alert("비밀번호와 확인을 모두 입력해주세요.");
+								return false;
+							}else{
+								if(userPass.value != passCheck.value){
+									alert("비밀번호가 일치하지 않습니다.");
+									return false;
+								}else{
+									if(userName.value == ""){
+										alert("이름을 입력해 주세요.");
+										return false;
+									}else{
+										if(userBirth.value == ""){
+											alert("생년월일을 입력해 주세요.");
+											return false;	
+										}else{
+											return true;
+										}//생년월일 입력 확인
+									}//이름 입력 확인
+								}//비밀번호 일치 확인							
+							}//비밀번호 입력 확인
+						}//아이디 중복 확인
+					}//아이디 입력 확인
+				}//onsubmit
+			}//window.open
+		</script>
+		
+		<!-- 메뉴 생성 시작 -->
+		<script>
+			function createMenu(){
+				var menu 	 = ["Home","Match","Rank","Team","TransFer"];
+				var menuKor	 = ["홈으로","경기진행","순위","팀관리","이적시장"];
+				var menuArea = document.getElementsByClassName("menu"); 
+				
+				for(var i = 0; i < menu.length; i++){
+					var aTag 	 = document.createElement("a");
+					var menuText = document.createTextNode(menuKor[i]);
+					aTag.setAttribute("href", menu[i] + ".html");
+					aTag.setAttribute("id", menu[i]);
+					aTag.appendChild(menuText);
+					menuArea[0].appendChild(aTag);
+				}
+			}
+		</script>
+		<!-- 메뉴 생성 끝 -->
+		
+	</head>
+	<body>
+		<!-- 전체 영역 시작 -->
+		<div class = "main">
+			<div class="top">
+				<!-- 타이틀 이미지 -->
+				<img alt="메인 타이틀" src="imgs/메인 타이틀.png" id="titleImg">
+				<!-- 로그인 시작 -->
+				<div class="login">
+					<div class="inputArea">
+						<p>아이디: </p>
+						<input type="text" name="uid" id="userId">
+						<input type="button" id="lBtn" value="로그인">
+						<p>비밀번호: </p>
+						<input type="password" name="upass" id="userPass">
+					</div>
+					<div class="etcArea">
+						<a href="#" id="findId">아이디</a>
+						<p>/</p>
+						<a href="#" id="findPass">비밀번호 찾기</a> 
+						<a href="resister.html" id="register">회원가입</a>
+					</div>
+				</div>
+				<!-- 로그인 끝 -->		
+			</div>
+
+			<!-- 메뉴 시작 -->
+			<div class="menu"></div>
+			<!-- 메뉴 끝 -->
+			
+			<!-- 내용 영역 시작 -->
+			<div class="board">
+				<div class="allArea">
+					<div class="titleArea">
+						<p>★회원가입★</p>
+					</div>
+					<div class="boardArea">
+						<form method="post" action="gMain.jsp" id="form">
+							<div class="idArea">
+								<p class="tFeild">아이디:</p>
+								<input type="text" name="uid" id="uId">
+								<input type="button" value="중복확인" id="idCheck">
+							</div>
+							<div class="Area">
+								<p class="tFeild">비밀번호:</p>
+								<input type="password" name="upass" id="pass">
+								<p class="tFeild">확인:</p>
+								<input type="password" name="upasscheck" id="passCheck">
+							</div>
+							<div class="Area">
+								<p class="tFeild">이름:</p>
+								<input type="text" name="uname" id="uName">
+							</div>
+							<div class="Area">
+								<p class="tFeild">생년월일:</p>
+								<input type="date" name="ubirth" id="uBirth">
+							</div>
+							<div class="Area">
+								<p class="tFeild">성별:</p>
+								<div class="gdiv">
+									<input type="radio" name="gender" value="2" id="woman">
+									<label for="woman" id="femalelb">여자</label>
+								</div>	
+								<div class="gdiv">
+									<input type="radio" name="gender" value="1" id="man">
+									<label for="man" id="malelb">남자</label>
+								</div>
+							</div>
+							<div class="Area">
+								<p class="tFeild">전화번호:</p>
+								<select name="uphone1" id="fNum">
+									<option value="010">010</option>
+									<option value="011">011</option>
+									<option value="016">016</option>
+									<option value="017">017</option>
+									<option value="018">018</option>
+									<option value="019">019</option>
+								</select>
+								<span>-</span>
+								<input type="text" name="uphone2" id="sNum" maxlength="4">
+								<span>-</span>
+								<input type="text" name="uphone3" id="tNum" maxlength="4">
+							</div>
+							<div class="Area">
+								<p class="tFeild">이메일:</p>
+								<input type="text" name="uemail" id="uEmail">
+								<span>@</span>
+								<input type="text" name="lemail" id="lEmail" value="">
+								<select name="selemail" id="selEmail">
+									<option value="">선택</option>
+									<option value="naver.com">네이버</option>
+									<option value="daum.net">다음</option>
+									<option value="google.com">구글</option>
+									<option value="nate.com">네이트</option>
+									<option value="">직접입력</option>
+								</select>
+							</div>
+							<div class ="adressArea">
+								<p>우편번호:</p>
+								<input type="text" name="uzipcode" id="uZipcode" readonly="readonly">
+								<input type="button" id="aBtn" value="검색">
+								<p>주소:</p>
+								<input type="text" name="adress" id="adress">
+								<p>상세주소:</p>
+								<input type="text" name="dadress" id="dAdress">
+							</div>
+							<input type="submit" value="가입" id="oBtn">
+							<input type="button" value="취소" id="cBtn">
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- 내용 영역 끝 -->
+			
+		</div>
+		<!-- 전체 영역 끝 -->
+		
+	</body>
+</html>

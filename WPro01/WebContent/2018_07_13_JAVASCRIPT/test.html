@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			.all{
+				width:222px;
+				float:left;
+			}
+			
+			#main{
+				width:220px;
+				height:150px;
+				overflow: hidden;
+				float:left;
+			}
+			
+			#resultView{
+				width:500px;
+				height:500px;
+				float:left;
+			}
+			
+			ul{
+				padding:0;
+				margin:0;
+			}
+			
+			li{
+				display:block;
+				border:1px solid black;
+			}
+		</style>
+		<script>
+			function input(name, kor, math, eng){
+				this.name=name;
+				this.kor=kor;
+				this.math=math;
+				this.eng=eng;
+			}
+			
+			input.prototype.getSum = function(){
+				return parseInt(this.kor) + parseInt(this.math) + parseInt(this.eng);
+			}
+			
+			input.prototype.getAvg = function(){
+				var avg = (parseInt(this.kor) + parseInt(this.math) + parseInt(this.eng))/3;
+				return avg.toFixed(2);
+			}
+		
+			input.prototype.getGrade = function(){
+				var grade = ['F','F','F','F','F','F','D','C','B','A','A'];
+				return grade[Number.parseInt((this.getAvg()/10))];
+			}
+			
+			input.prototype.toString = function(){
+				var msg = '<li>이름: '+this.name;
+				msg	   += ' 국어: ' + this.kor;
+				msg	   += ' 수학: ' + this.math;
+				msg	   += ' 영어: ' + this.eng;
+				msg	   += ' 총점: ' + this.getSum();
+				msg	   += ' 평균: ' + this.getAvg();
+				msg	   += ' 학점: ' + this.getGrade();
+				msg	   += ' 석차: ' + this.rnk;
+				msg	   += '</li>';
+				
+				return msg;
+			}
+			
+	 		function setRank (stu){
+				for(var i = 0; i < stu.length; i++){
+					stu[i].rnk = 1;
+				}
+				
+				for(var i = 0; i < stu.length; i++){
+					for(var j = 0; j < stu.length; j++){
+						if(stu[i].getSum() < stu[j].getSum()){
+							stu[i].rnk += 1;
+						}
+					}
+				}
+			} 
+	 	 		
+			onload = function(){
+				var name = document.getElementById('name');
+				var kor	 = document.getElementById('kor');
+				var math = document.getElementById('math');
+				var eng	 = document.getElementById('eng');
+				var iBtn = document.getElementById('iBtn');
+				var cBtn = document.getElementById('cBtn');
+				var rView= document.querySelector('#resultView > ul');
+				
+				var stu  = [];
+				
+				iBtn.addEventListener('click', function(){
+					stu.push(new input(name.value, kor.value, math.value, eng.value));
+					alert('입력 완료');
+				})
+				
+				cBtn.addEventListener('click', function(){
+					setRank(stu);
+					
+					for(var j = 0; j < stu.length; j++){
+							
+					}
+					
+					var msg = '';
+					for(var i = 0; i < stu.length; i++){
+						msg += stu[i].toString();
+					}
+					
+					rView.innerHTML = msg;
+				})
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div class="all">
+			<div id="main">
+				<span>이름:</span>
+				<input type="text" name="name" id="name">
+				<span>국어:</span>
+				<input type="text" name="kor" id="kor">
+				<span>수학:</span>
+				<input type="text" name="math" id="math">
+				<span>영어:</span>
+				<input type="text" name="eng" id="eng">
+				<input type="button" id="iBtn" value="입력">
+				<input type="button" id="cBtn" value="결과보기">
+			</div>
+		</div>
+		<div id="resultView">
+			<ul>
+			</ul>
+		</div>
+	</body>
+</html>

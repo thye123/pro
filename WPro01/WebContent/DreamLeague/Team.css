@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/* 배경이미지 */
+.backImg{
+	width			: 1000px;
+	height			: 700px;
+	position		: relative;  
+}
+
+/* 전체 영역 */
+.teamArea{
+	background-color: white;
+	opacity			: 0.6;
+	width			: 800px;
+	height			: 650px;
+	margin			: 0 auto;
+	border			: 1px solid black;
+	border-radius	: 5px;
+	position		: absolute;
+	top				: 188px;
+	left			: 250px;
+	float			: left; 	
+}
+
+/* 상단 1,2부 구분 */
+.teamLeague{
+	display		: inline-block;
+	width		: 200px;
+	height		: 50px;
+	line-height	: 50px;
+	overflow	: hidden;
+	float		: left;	
+	text-align	: center;
+	font-family : 나눔고딕;
+	font-weight : bold;
+	font-size	: 20px;  
+}
+
+.teamLeague p{
+	display		: inline-block;
+	margin		: 0; 
+}
+
+.teamLeague:hover{
+	color				: lime;
+	background-color 	: black;
+	border-radius		: 5px; 	
+}
+
+/* 엠블럼 영역 */
+.teamLogo{
+	width		: 800px;
+	height		: 600px;
+	margin		: 0 auto;
+	float		: left;
+}

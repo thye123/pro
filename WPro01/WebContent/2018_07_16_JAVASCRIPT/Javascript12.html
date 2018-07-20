@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script>
+			var car = [
+				{type : 'Volvo', year : '2016'}
+				,{type : 'Saab', year : '2001'}				
+				,{type : 'BMW', year : '2010'}				
+			];
+			
+			car.push({type : 'Benz', year : '2018'});
+			
+			function carInfo( div ){
+				var msg = '';
+					msg += '<ul>';
+				for(var i = 0; i < car.length; i++){
+					msg += '<li> Type: '+ car[i].type + ', ' + ' Year: ' + car[i]['year'] +'</li>';
+				}
+					msg += '</ul>';
+				div.innerHTML = msg;
+			}
+			
+			onload = function(){
+				var div1 = document.getElementById('div1');
+				carInfo(div1);
+				var btn  = document.getElementById('btnSort');
+				var div2 = document.getElementById('div2');
+				
+				btn.onclick = function(){
+					/* //년도별
+					car.sort(function(a,b){
+						return a.year-b.year;
+					}); */
+					//종류별
+					car.sort(function(a,b){
+						return a.type.toLowerCase() > b.type.toLowerCase();
+					});
+					carInfo(div2);										
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id='div1'></div>
+		<button id='btnSort'>정렬</button>
+		<div id='div2'></div>	
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			ul{
+				width: auto;
+				list-style-type: none;
+				margin:0px;
+				padding:0px;
+				overflow:hidden;
+				text-align: center;
+				background-color: black; 
+			}
+			
+			li{
+				width: 100px;
+				float:left;
+			}
+			
+			li a{
+				display: block;
+				text-decoration: none;
+				font-weight: bolder;
+				font-size: 20px;
+				color: white;
+			}
+			
+			li a:hover{
+				color: lime;
+				background-color: silver;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function (){
+				var menuList = ["Home","Java","Javascript","JSP","Oracle","JQuery","Spring"];
+				var menu = document.getElementById("menu");
+				var list = "";
+				for(var i = 0; i < menuList.length; i++){
+					list += "<li><a href='#"+menuList[i]+"'>"+menuList[i]+"</a></li>"
+				}
+				menu.innerHTML = list;
+				
+				var as = document.getElementsByTagName("a");
+				
+				for(var j = 0; j < menuList.length; j++){
+					as[j].onmouseover = function(){
+						alert(this.innerHTML);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h2>Nabigation Menu</h2>
+		<p>메뉴바 테스트</p>
+		<ul id = "menu"></ul>
+	</body>
+</html>

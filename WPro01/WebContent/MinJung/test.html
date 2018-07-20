@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.gub{
+		width:100px;
+		height:100px; 
+		
+	}
+	
+	.ene_img{
+		margin-top: 9px;
+		width:100px;
+		height: 100px;
+	}
+	.TopWrap {
+		 display: inline-block;
+		 width: 100px;
+		 height: 100px;
+		 position: absolute;
+	}
+	
+	
+	.middleWrap{
+	 	display: inline-block;
+	    width: 117px;
+	    height: 165px;
+	    position: absolute;
+	}
+	
+	
+	#showWrap{
+		width:980px;
+		position: relative;
+	}
+	
+	.head , .enemyHead{
+		width:100px;
+		height: 7px;
+		background-color: green;
+	}
+	
+	p{
+		text-align: center;
+	}
+	
+	p.ene_infor {
+	    display: inline-block;
+	    width: 110px;
+	    height: 26px;
+	}
+
+	.water {
+	    position: absolute;
+	    width: 20px;
+	    width: 16px;
+	    height: 17px;
+	    border-radius: 13px;
+	    background-color: darkblue;
+	    margin: 0 auto;
+	    top: 40px;
+	    left: 22px;
+	}
+
+	.mball {
+	    width: 20px;
+	    float: left;
+	    width: 16px;
+	    height: 17px;
+	    border-radius: 13px;
+	    background-color: darkblue;
+	    margin: 0 auto;
+	    top: 40px;
+	    left: 22px;
+	}
+	
+	.water2{
+		position: absolute;
+	    width: 20px;
+	    width: 16px;
+	    height: 17px;
+	    border-radius: 13px;
+	    background-color: darkblue;
+	    margin: 0 auto;
+		top: 40px;
+		left: 22px;
+	}
+
+</style>
+
+
+<script>
+
+	var gub= document.getElementsByClassName('gub');
+	var top2 = document.getElementsByClassName('TopWrap');
+	var xpos=0;	
+
+	var gub_infor = {
+			name:"꼬부기",
+			gub_hp:100,
+	}
+	
+	var ene_infor={
+		name:"파이리",
+		gub_hp:100,
+	}
+	
+	function init(){
+	 	 top2[0].style.position='absolute'; 
+		 top2[0].style.left='900px';
+	}
+	
+	window.onload=function(){
+		init();
+		var gub_infors = document.getElementsByClassName('gub_infors');
+		gub_infors[0].innerHTML=gub_infor.name;
+		
+		var ene_infors = document.getElementsByClassName('ene_infor');
+		ene_infors[0].innerHTML =ene_infor.name;
+
+		top.onkeypress=function(){
+			 var x = event.which;
+			 alert(x)
+			 if(x==97){
+					var totxpos='460';
+					if(xpos<totxpos){
+						for(var i=0; i<10; i++){
+								xpos++;
+								top2[0].style.left= Number.parseInt(xpos)+xpos+'px';
+							}
+					}
+					if(xpos>totxpos){
+							alert('이동 못함 ');
+					}	 
+			 }
+			 
+			 
+			var wBall = [];
+			var water2= '';
+			if(x==108){
+				var madeBall= document.createElement('div');
+				madeBall.setAttribute("class","mball");
+				water2 = document.createElement('div');
+				var water=document.getElementsByClassName('water');
+				var pos=-10;
+				var startPos=setInterval(attBall ,10);
+
+				
+				if(water[0].childElementCount = 0){
+					water[0].appendChild(madeBall);
+				}else{
+					wBall.push(madeBall);
+					for(var i = 0; i < wBall.length; i++){
+					water2[i].appendChild(madeBall);
+					}
+				}
+				
+				 
+				function attBall(){
+					/* alert(pos); */
+					if(pos==-800){
+						clearInterval(startPos);
+						//wBall.pop();
+						water[0].removeChild(madeBall);
+					}else{
+						pos--;
+						water[0].style.left= pos+'px';
+					}
+				}
+		 	}
+		}
+	}
+</script>
+</head>
+<body>
+	
+	<div id= "showWrap">
+		<div class= "TopWrap">
+			<div class="head"></div>
+			<img src="./img/gubgub.png" class="gub"/>
+			<p class="gub_infors"></p>
+			<div class="water"></div>
+		</div>
+	</div>
+	
+	<div class="middleWrap">
+		<div class="enemyHead"></div>
+		<img src="./img/paele.jpg" class="ene_img">
+		<p class="ene_infor"></p>
+	</div>
+	
+</body>
+</html>
