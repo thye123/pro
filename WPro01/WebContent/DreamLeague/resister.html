@@ -14,6 +14,11 @@
 				var idCheckCnt	= 0;
 				idCheck.onclick = function(){
 					
+					var file	 = "idCheck.jsp";
+					var name 	 = "idCheck";
+					var features = "width=200px, height=300px, top=200px, left=300px";
+					window.open(file, name, features);
+					
 					idCheckCnt++;
 				}
 				
@@ -243,7 +248,7 @@
 								<input type="text" name="uzipcode" id="uZipcode" readonly="readonly">
 								<input type="button" id="aBtn" value="검색">
 								<p>주소:</p>
-								<input type="text" name="adress" id="adress">
+								<input type="text" name="adress" id="adress" readonly="readonly">
 								<p>상세주소:</p>
 								<input type="text" name="dadress" id="dAdress">
 							</div>

@@ -1,4 +1,4 @@
-package servletTest;
+/*package servletTest;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,3 +32,4 @@ public class MathodTest extends HttpServlet {
 		out.close();
 	}
 }
+*/

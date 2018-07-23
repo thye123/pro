@@ -31,7 +31,7 @@
 	dao.close();
 	
 	//메인으로 돌아가기
-	
+	response.sendRedirect("Home.html");
 %>
 <!DOCTYPE html>
 <html>

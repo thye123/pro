@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -54,4 +54,4 @@
 			<option class="op" value="rainbow">색똥저고리</option>
 		</select><button id="btn">눌리라</button>
 	</body>
-</html>
+</html> --%>

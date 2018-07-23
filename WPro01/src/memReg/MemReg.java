@@ -1,6 +1,6 @@
-package memReg;
+/*package memReg;
 
-/*import java.io.IOException;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -58,7 +58,7 @@ public class MemReg extends HttpServlet {
 		doGet(request, response);
 	}
 
-}*/
+}
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -85,16 +85,16 @@ public class MemReg extends HttpServlet {
       response.setContentType("text/html; charset=UTF-8"); 
       String newUName = java.net.URLEncoder.encode(uName);
       PrintWriter out = response.getWriter();
-      /*String msg = "<!doctype html>";
+      String msg = "<!doctype html>";
       msg       += "<html>";
       msg		+= "<head><meta charset='UTF-8'></head>";
       msg		+= "<body>";
       msg		+= "<h1>결론</h1>";	
       msg		+= "<h1>"+"아이디:"+newUName+"</h1>";
       msg		+= "</body>";
-      msg		+= "</html>";*/
+      msg		+= "</html>";
       
-      /*boolean ok=true;*/
+      boolean ok=true;
       if(!uName.equals("")) {
          response.sendRedirect("2018_07_19_JSP/regMember.jsp?uName="+newUName);
       }else {
@@ -111,3 +111,4 @@ public class MemReg extends HttpServlet {
    }
 
 }
+*/
