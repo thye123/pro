@@ -13,11 +13,11 @@
 				var idCheck 	= document.getElementById("idCheck");
 				var idCheckCnt	= 0;
 				idCheck.onclick = function(){
-					
+					var usId	 = document.getElementById("uId");
 					var file	 = "idCheck.jsp";
 					var name 	 = "idCheck";
 					var features = "width=400px, height=400px, top=200px, left=300px";
-					window.open(file, name, features);
+					var openWin  = window.open(file, name, features);
 					
 					idCheckCnt++;
 				}
@@ -186,12 +186,12 @@
 						<form method="post" action="registerProc.jsp" id="form">
 							<div class="idArea">
 								<p class="tFeild">아이디:</p>
-								<input type="text" name="uid" id="uId">
+								<input type="text" name="userid" id="uId">
 								<input type="button" value="중복확인" id="idCheck">
 							</div>
 							<div class="Area">
 								<p class="tFeild">비밀번호:</p>
-								<input type="password" name="upass" id="pass">
+								<input type="password" name="userpass" id="pass">
 								<p class="tFeild">확인:</p>
 								<input type="password" name="upasscheck" id="passCheck">
 							</div>

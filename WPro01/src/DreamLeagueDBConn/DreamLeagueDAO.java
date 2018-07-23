@@ -67,4 +67,19 @@ public class DreamLeagueDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public int checkId(String userId) {
+		String checkId = "select count(id) as cnt from MEMBERTBL where ID like '"+ userId +"'";
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement(checkId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				cnt = rs.getInt("cnt");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
 }

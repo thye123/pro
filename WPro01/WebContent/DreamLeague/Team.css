@@ -7,9 +7,18 @@
 }
 
 /* 전체 영역 */
-.teamArea{
-	background-color: white;
+.backArea{
+	width			: 800px;
+	height			: 650px;
+	position		: absolute;
+	top				: 188px;
+	left			: 250px;
 	opacity			: 0.6;
+	background-color: white;
+	border-radius	: 5px;
+}
+
+.teamArea{
 	width			: 800px;
 	height			: 650px;
 	margin			: 0 auto;
@@ -18,7 +27,8 @@
 	position		: absolute;
 	top				: 188px;
 	left			: 250px;
-	float			: left; 	
+	float			: left;
+	overflow		: hidden; 	
 }
 
 /* 상단 1,2부 구분 */
@@ -52,4 +62,43 @@
 	height		: 600px;
 	margin		: 0 auto;
 	float		: left;
+}
+
+/* 엠블럼 이미지 영역 */
+.embImg{
+	width		: 152px;
+	height		: 141px;
+	border		: 1px solid black;
+	margin-top	: 5px;
+	margin-left	: 5px;
+	float		: left; 
+	display		: none;	
+	overflow	: hidden; 
+}
+
+.embImg img {
+	width		: 80px;
+	height		: 80px;
+	display		: table-cell;
+	margin		: 0 auto;
+	margin-top	: 10px;
+}
+
+.embImg2{
+	width		: 152px;
+	height		: 141px;
+	border		: 1px solid black;
+	margin-top	: 5px;
+	margin-left	: 5px;
+	float		: left; 
+	display		: none;	
+	overflow	: hidden; 
+}
+
+.embImg2 img {
+	width		: 80px;
+	height		: 80px;
+	display		: table-cell;
+	margin		: 0 auto;
+	margin-top	: 10px;
 }

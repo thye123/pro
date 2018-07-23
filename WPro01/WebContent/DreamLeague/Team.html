@@ -32,28 +32,61 @@
 					,'Salzburg' ,'Southampton' ,'Sporting' ,'Stuttgart' ,'Swangi' ,'Villareal'
 					,'Volfs'];
 				
+				//1부 리그 팀 및 엠블럼 이미지 생성
+				for(var j = 0; j < team1.length; j++){
+					var emblemDiv = document.createElement("div");
+					emblemDiv.setAttribute('class', 'embImg');
+					var emblemImg = document.createElement("img");
+					emblemImg.setAttribute('src', 'imgs/emblum/'+team1[j]+'.png');
+					emblemDiv.appendChild(emblemImg);
+					teamLogo[0].appendChild(emblemDiv);
+				}
+				
+				//2부 리그 팀 및 엠블럼 이미지 생성
+				for(var j = 0; j < team2.length; j++){
+					var emblemDiv2 = document.createElement("div");
+					emblemDiv2.setAttribute('class', 'embImg2');
+					var emblemImg2 = document.createElement("img");
+					emblemImg2.setAttribute('src', 'imgs/emblum/'+team2[j]+'.png');
+					emblemDiv2.appendChild(emblemImg2);
+					teamLogo[0].appendChild(emblemDiv2);
+				}
+				
+				var fistLeague = document.getElementsByClassName('embImg');
+				var secondLeague = document.getElementsByClassName('embImg2');
+				
+				//마우스 클릭 시 CSS변경
 				for(var i = 0; i < teamLeague.length; i++){
 					teamLeague[i].addEventListener('click', function(){
-						if(teamLeague[0]){
+						if(this == teamLeague[0]){
 							teamLeague[1].style.backgroundColor	= "white";
 							teamLeague[1].style.color 			= "black";
+							teamLeague[1].style.opacity			= "0.5";
 							this.style.backgroundColor 			= "gray";
 							this.style.color					= "gold";
 							this.style.borderRadius 			= "5px";
-						}
-						if(teamLeague[1]){
-							teamLeague[0].style.backgroundColor ="white";
+							this.style.opacity					= "0.5";
+							
+							for(var h = 0; h < team1.length; h++){
+								secondLeague[h].style.display = "none";
+								fistLeague[h].style.display = "inline-block";	
+							}
+						}else{
+							teamLeague[0].style.backgroundColor = "white";
 							teamLeague[0].style.color 			= "black";
+							teamLeague[0].style.opacity			= "0.5";
 							this.style.backgroundColor 			= "gray";
 							this.style.color					= "gold";
 							this.style.borderRadius 			= "5px";
+							this.style.opacity					= "0.5";
+							
+							for(var g = 0; g < team2.length; g++){
+								fistLeague[g].style.display = "none";
+								secondLeague[g].style.display = "inline-block";
+							}
 						}
 					});
 				};
-				
-				
-				
-				
 			}
 		</script>		
 		<!-- 팀 엠블럼 및 radio button생성 끝 -->
@@ -109,6 +142,7 @@
 			<!-- 내용 영역 시작 -->
 			<div class="board">
 				<img alt="배경 이미지" src="imgs/main1.jpg" class="backImg">
+				<div class="backArea"></div>
 				<div class="teamArea">
 					<div class="teamLeague"><p>1부</p></div>
 					<div class="teamLeague"><p>2부</p></div>

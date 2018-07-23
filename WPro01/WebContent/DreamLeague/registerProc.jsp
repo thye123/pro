@@ -5,8 +5,8 @@
 	request.setCharacterEncoding("UTF-8");
 	DreamLeagueDAO dao 	= new DreamLeagueDAO();
 	//값 받아온거 변수에 담기
-	String id 		= request.getParameter("uid");
-	String pass 	= request.getParameter("upass");
+	String id 		= request.getParameter("userid");
+	String pass 	= request.getParameter("userpass");
 	String name 	= request.getParameter("uname");
 	String birth 	= request.getParameter("ubirth");
 	String gender 	= request.getParameter("gender");
@@ -33,24 +33,3 @@
 	//메인으로 돌아가기
 	response.sendRedirect("Home.html");
 %>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-		<style>
-
-		</style>		
-		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<script>
-			$(function(){
-			
-			});
-		</script>
-	</head>
-	<body>
-		
-	</body>
-</html>
