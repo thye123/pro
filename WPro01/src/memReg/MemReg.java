@@ -1,4 +1,4 @@
-/*package memReg;
+package memReg;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/memreg")
+/*@WebServlet("/memreg2")
 public class MemReg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -58,7 +58,7 @@ public class MemReg extends HttpServlet {
 		doGet(request, response);
 	}
 
-}
+}*/
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -111,4 +111,3 @@ public class MemReg extends HttpServlet {
    }
 
 }
-*/
