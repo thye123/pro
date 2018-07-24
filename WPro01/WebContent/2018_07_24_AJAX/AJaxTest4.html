@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<style>
+			.di{
+				border			: 1px solid black;
+				border-radius	: 5px;
+				margin-right	: 5px;
+				padding			: 5px;
+				display			: inline-block; 
+			}
+		</style>		
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script>		
+			function display(singerList){
+				var out = document.getElementById('outPut');
+				var msg  = '<h3>선빻계의 조상님들</h3>';
+				
+				for(var i = 0; i < singerList.length; i++){
+					msg += '<div class="di">';
+					msg += '<h4>이름:'+ singerList[i].name   +'</h4>';
+					msg += '<h4>신장:'+ singerList[i].height +'</h4>';
+					msg += '<h4>무게:'+ singerList[i].weight +'</h4>';
+					msg += '</div>';
+				}
+				out.innerHTML += msg;
+				
+			}
+		
+			$(function(){
+				var getBtn = document.getElementById('getBtn');
+				getBtn.addEventListener('click', function(){
+					var req = new XMLHttpRequest();
+					req.onreadystatechange = function(event){
+						if(req.readyState == 4){
+							if(req.status == 200){
+								var singerList = JSON.parse(req.responseText);
+								console.log(singerList);
+								display(singerList);
+								/* for(var i = 0; i < singerList.length; i++){
+									display(singerList[i]);
+								} */
+							}else{
+								alert('에라 났다.' + req.status);											
+							}
+						}						
+					}
+					
+					req.open('GET', 'dataList.json', true);
+					
+					req.send();
+					
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="getBtn">가꼬온나</button>
+		<div id="outPut"></div>	
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<style>
+	
+		</style>		
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script>
+			/* var singer = {
+							"name" 		: "은만개",
+							"height"	: "160이길 바란다.",
+							"weight"	: "비공개"
+						 } */
+		
+			function display(singer){
+				var msg = '<h1>선빻계의 조상님</h1>';
+					msg += '<h2>이름:'+ singer.name   +'</h2>';
+					msg += '<h2>신장:'+ singer.height +'</h2>';
+					msg += '<h2>무게:'+ singer.weight +'</h2>';
+				var out = document.getElementById('outPut');
+				
+				out.innerHTML = msg;
+			}
+		
+			$(function(){
+				var getBtn = document.getElementById('getBtn');
+				getBtn.addEventListener('click', function(){
+					// 비동기 방식
+					var req = new XMLHttpRequest();
+					// 이벤트 추가 : 통신 상태가 변경되면 발생
+					req.onreadystatechange = function(event){
+						
+						if(req.readyState == 4){// data가 도착 완료 상태
+							//모든 코딩은 요기서 해야 한다.
+							//data가 도착했을때 해야 뭐라도 나오지 않겠니?
+							
+							if(req.status == 200){//data가 제대로 왔을 때 
+								var result = req.responseText; //req.responseText는 문자열이다!
+								alert(result);
+								//모든 브라우저 버전에서 가능
+								//var singer = eval('(' + req.responseText + ')');//text를 javascript Object로 변환.
+								
+								//최신 브라우저 버전에서만 가능
+								var singer = JSON.parse(result);//문자열을 JSON type의 Object로 변환.
+								
+								display(singer);
+							}else{//data가 제대로 안왔을 때
+								alert('에라 났다.' + req.status);											
+							}
+						}						
+						//alert(req.readyState + ',' + req.responseText);
+					}
+					
+					// 요청할 준비
+					req.open(
+								'GET', 'data.json', true /* false => 비동기화, true => 동기 방식 */
+							);
+					
+					// 요청 
+					req.send();//요청 후 결과가 도착할때까지 대기!
+					
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="getBtn">가꼬온나</button>
+		<div id="outPut"></div>	
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<style>
+	
+		</style>		
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script>
+			$(function(){
+				var getBtn = document.getElementById('getBtn');
+				getBtn.addEventListener('click', function(){
+					// 비동기 방식
+					var req = new XMLHttpRequest();
+					// 이벤트 추가 : 통신 상태가 변경되면 발생
+					req.onreadystatechange = function(event){
+						
+						if(req.readyState == 4){// data가 도착 완료 상태
+							//모든 코딩은 요기서 해야 한다.
+							//data가 도착했을때 해야 뭐라도 나오지 않겠니?
+							
+							if(req.status == 200){//data가 제대로 왔을 때 
+								alert(req.responseText);
+								var result = req.responseText;
+								var outPut = document.getElementById('outPut');
+								outPut.innerHTML = result;
+							}else{//data가 제대로 안왔을 때
+								alert('에라 났다.' + req.status);											
+							}
+						}						
+						//alert(req.readyState + ',' + req.responseText);
+					}
+					
+					// 요청할 준비
+					req.open(
+								'GET', 'data.html', true /* false => 비동기화, true => 동기 방식 */
+							);
+					
+					// 요청 
+					req.send();//요청 후 결과가 도착할때까지 대기!
+					
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="getBtn">가꼬온나</button>
+		<div id="outPut"></div>	
+	</body>
+</html>

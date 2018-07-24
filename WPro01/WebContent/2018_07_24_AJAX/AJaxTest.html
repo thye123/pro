@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<style>
+	
+		</style>		
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script>
+			$(function(){
+				var getBtn = document.getElementById('getBtn');
+				getBtn.addEventListener('click', function(){
+					// 동기 방식
+					var req = new XMLHttpRequest();
+					// 요청할 준비
+					req.open(
+								'GET', 'data.html', false /* false => 동기 방식, true => 비동기화  */
+							);
+					
+					// 요청 
+					req.send();
+					
+					var result = req.responseText;
+					
+					var outPut = document.getElementById('outPut');
+					outPut.innerHTML = result;
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="getBtn">가꼬온나</button>
+		<div id="outPut"></div>	
+	</body>
+</html>

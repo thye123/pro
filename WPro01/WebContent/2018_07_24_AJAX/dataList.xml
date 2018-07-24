@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<singerList>
+	<singer>
+		<name>은만개</name>
+		<height>160이길 바란다.</height>
+		<weight>비공개</weight>
+	</singer>
+	<singer>
+		<name>민푸훗</name>
+		<height>170이길 바란다.</height>
+		<weight>비공개</weight>
+	</singer>
+	<singer>
+		<name>봉금니</name>
+		<height>187이길 바란다.</height>
+		<weight>비공개</weight>
+	</singer>
+	<singer>
+		<name>김성재</name>
+		<height>184이길 바란다.</height>
+		<weight>비공개</weight>
+	</singer>
+	<singer>
+		<name>권영환</name>
+		<height>185이길 바란다.</height>
+		<weight>비공개</weight>
+	</singer>
+</singerList>
