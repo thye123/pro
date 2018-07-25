@@ -7,18 +7,42 @@
 		<link rel="stylesheet" type="text/css" href="resister.css">
 		<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 		<script>
+			function idCheckA(usId){
+				var req = new XMLHttpRequest();
+				req.onreadystatechange = function (event){
+					if(req.readyState == 4){
+						if(req.status == 200){
+							var obj	   = JSON.parse(req.responseText); 
+							var idtxt  = document.getElementById('result');
+							//처리 결과
+							if(obj == false){
+								idtxt.innerHTML = "사용가능";	
+								idtxt.style.color = "lime";
+							}else{
+								idtxt.innerHTML = "사용불가";								
+								idtxt.style.color = "red";
+							}
+						}
+					}
+				}
+				req.open('GET', '../idcheck?id='+usId, true);
+				req.send();
+			}
+		
+		
 			window.onload = function(){
 				createMenu();
 				//아이디 중복확인
 				var idCheck 	= document.getElementById("idCheck");
 				var idCheckCnt	= 0;
 				idCheck.onclick = function(){
-					var usId	 = document.getElementById("uId");
+					/* var usId	 = document.getElementById("uId");
 					var file	 = "idCheck.jsp";
 					var name 	 = "idCheck";
 					var features = "width=400px, height=400px, top=200px, left=300px";
-					var openWin  = window.open(file, name, features);
-					
+					var openWin  = window.open(file, name, features); */
+					var usId	 = document.getElementById("uId");
+					idCheckA(usId.value);
 					idCheckCnt++;
 				}
 				
@@ -188,6 +212,7 @@
 								<p class="tFeild">아이디:</p>
 								<input type="text" name="userid" id="uId">
 								<input type="button" value="중복확인" id="idCheck">
+								<b id="result"></b>
 							</div>
 							<div class="Area">
 								<p class="tFeild">비밀번호:</p>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<style>
+
+		</style>		
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script>
+			$(function(){
+				$('#btn').on('click', function(){
+					$.ajax({
+						url 	: '../memlist', // servlet name
+						type	: 'POST',
+						data	: { name : $('#txtname').val() },
+						success	: function(datalist){
+							console.log(datalist);
+							alert(datalist);
+							$.each(datalist, function(index){
+								var li 	= 	'<li>';
+									li += 	this.id 		+ ",";
+									li += 	this.name 		+ ",";
+									li += 	this.birth 		+ ",";
+									li += 	this.email 		+ ",";
+									li += 	this.regdate 		 ;
+									li += 	'</li>';
+								$('#list').append(li);
+							});
+						},
+						error	: function(xhr){
+							console.log(xhr);
+							alert( 'error:' +  xhr.status );
+						}
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<main id="main">
+			<div id="search">
+				<label>이름</label><input type="text" id="txtname">
+				<input type="button" id="btn" value="확인">
+			</div>
+			<ul id="list"></ul>
+		</main>
+	</body>
+</html>

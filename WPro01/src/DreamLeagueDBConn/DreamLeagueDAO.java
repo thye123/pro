@@ -82,4 +82,26 @@ public class DreamLeagueDAO {
 		}
 		return cnt;
 	}
+
+	public String idCheck(String id) {
+		/*String json 	= "{ \"id\" : \"%s\", \"result\" : \"%s\" }";*/
+		String result 	= "false";
+		String sql		= "select count(id) as acnt from MEMBERTBL where ID like '"+ id +"'";		
+		try {
+			pstmt 	= conn.prepareStatement(sql);
+			rs		= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int cnt = rs.getInt("acnt");
+				if(cnt == 0) {
+					result = "false";
+				}else {
+					result = "true";
+				}
+			}
+ 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

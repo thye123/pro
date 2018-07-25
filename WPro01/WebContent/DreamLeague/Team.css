@@ -42,7 +42,7 @@
 	text-align	: center;
 	font-family : 나눔고딕;
 	font-weight : bold;
-	font-size	: 20px;  
+	font-size	: 20px; 
 }
 
 .teamLeague p{
@@ -51,8 +51,8 @@
 }
 
 .teamLeague:hover{
-	color				: lime;
-	background-color 	: black;
+	color				: gold;
+	background-color 	: forestgreen;
 	border-radius		: 5px; 	
 }
 
@@ -64,8 +64,23 @@
 	float		: left;
 }
 
+.teamLogo label{
+	width	: 152px;
+	height	: 141px;
+}
+
+.teamLogo label p{
+	text-align	: center;
+	font-family	: 나눔고딕;
+	font-weight	: bold;
+	font-size	: 17px;
+	margin		: 0 auto;
+	height		: 51px;
+	line-height	: 51px;  
+}
+
 /* 엠블럼 이미지 영역 */
-.embImg{
+.embImg0{
 	width		: 152px;
 	height		: 141px;
 	border		: 1px solid black;
@@ -76,7 +91,7 @@
 	overflow	: hidden; 
 }
 
-.embImg img {
+.embImg0 img {
 	width		: 80px;
 	height		: 80px;
 	display		: table-cell;
@@ -84,7 +99,7 @@
 	margin-top	: 10px;
 }
 
-.embImg2{
+.embImg1{
 	width		: 152px;
 	height		: 141px;
 	border		: 1px solid black;
@@ -95,7 +110,7 @@
 	overflow	: hidden; 
 }
 
-.embImg2 img {
+.embImg1 img {
 	width		: 80px;
 	height		: 80px;
 	display		: table-cell;

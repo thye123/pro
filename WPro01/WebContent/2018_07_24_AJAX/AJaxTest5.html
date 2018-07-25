@@ -17,19 +17,20 @@
 		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script>		
 			function display(xml){
+				var names 	= xml.getElementsByTagName('name');
+				var heights	= xml.getElementsByTagName('height');
+				var weights	= xml.getElementsByTagName('weight');
+				var msg  	= '<h3>선빻계의 조상님들</h3>';
 				
-				/* var out = document.getElementById('outPut');
-				var msg  = '<h3>선빻계의 조상님들</h3>';
-				
-				for(var i = 0; i < singerList.length; i++){
+				for(var i = 0; i < names.length; i++){
 					msg += '<div class="di">';
-					msg += '<h4>이름:'+ singerList[i].name   +'</h4>';
-					msg += '<h4>신장:'+ singerList[i].height +'</h4>';
-					msg += '<h4>무게:'+ singerList[i].weight +'</h4>';
+					msg += '<h4>이름:'+ names[i].childNodes[0].nodeValue   +'</h4>';
+					msg += '<h4>신장:'+ heights[i].childNodes[0].nodeValue +'</h4>';
+					msg += '<h4>무게:'+ weights[i].childNodes[0].nodeValue +'</h4>';
 					msg += '</div>';
 				}
-				out.innerHTML += msg; */
-				
+				var out = document.getElementById('outPut');
+				out.innerHTML += msg;
 			}
 		
 			$(function(){

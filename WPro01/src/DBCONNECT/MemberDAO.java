@@ -88,4 +88,45 @@ public class MemberDAO {
 		
 		return m;
 	}
+	
+	public String getMemListJSON(String name) {
+		List<MemberVO> list = new ArrayList<>();
+		try {
+			String sql = "select id, name, birth, email, regdate from membertbl where name like '%" + name + "%'";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				MemberVO vo = new MemberVO(rs.getString("id"), rs.getString("name"), rs.getString("birth"), rs.getString("email"), rs.getString("regdate"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		String jsonlist = "[";
+		
+		for (int i = 0; i < list.size(); i++) {
+			MemberVO vo = list.get(i);
+			jsonlist += vo.toJSON() + ",";
+		}
+		
+		if(jsonlist.charAt(jsonlist.length()-1) == ',') {
+			jsonlist = jsonlist.substring(0, jsonlist.length()-1);
+		}
+			
+		jsonlist += "]";
+		
+		return jsonlist;
+	}
+	
+	public int delMember(String id) {
+		int cnt = 0;
+		try {
+			stmt = conn.createStatement();
+			String sql = "delete from membertbl where id = '"+ id +"'";
+			cnt = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
 }

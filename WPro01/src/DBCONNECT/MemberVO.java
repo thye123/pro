@@ -110,8 +110,18 @@ public class MemberVO {
 		fmt		  += "<td>%s</td>";
 		fmt		  += "</tr>";
 		
-		String msg = String.format(fmt, id, id, name, birth, email, regdate);		
+		String msg = String.format(fmt, id, name, birth, email, regdate);		
 		return msg;
+	}
+	public String toJSON() {
+		String fmt  = "{\"id\": \"%s\", ";
+			   fmt += "\"name\": \"%s\", ";
+			   fmt += "\"birth\": \"%s\", ";
+			   fmt += "\"email\": \"%s\", ";
+			   fmt += "\"regdate\": \"%s\" ";
+			   fmt += "}";
+		String json = String.format(fmt, id, name, birth, email, regdate);
+		return json;
 	}
 	
 }

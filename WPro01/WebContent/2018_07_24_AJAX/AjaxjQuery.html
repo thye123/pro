@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<style>
+
+		</style>		
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script>
+			$(function(){
+				var memid = 'sky';
+				$('#btn').on('click', function(){
+					$.ajax({
+						url 	: 'data.json',
+						data	: { memid : memid },
+						type	: 'GET', // GET방식 드럽게 좋아하네
+						//async	: true -> 기본값이 true라서 안쓴다.
+						success	: function(data){
+							console.log(data);
+							alert(data.name + ':' + data.height);
+							var msg  = '<div>';
+								msg += '<h3>이름:'+data.name	+'</h3>';
+								msg += '<h3>신장:'+data.height	+'</h3>';
+								msg += '<h3>무게:'+data.weight	+'</h3>';
+								msg += '</div>';
+							document.getElementById('outPut').innerHTML = msg;
+						},
+						error	: function(xhr){
+							console.log(xhr);
+							alert(xhr.status + ': ' + xhr.error);
+						}
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn">눈질러라</button>
+		<main id="outPut"></main>
+	</body>
+</html>
