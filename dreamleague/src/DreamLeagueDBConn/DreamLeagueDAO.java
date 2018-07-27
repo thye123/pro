@@ -67,21 +67,6 @@ public class DreamLeagueDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	public int checkId(String userId) {
-		String checkId = "select count(id) as cnt from MEMBERTBL where ID like '"+ userId +"'";
-		int cnt = 0;
-		try {
-			pstmt = conn.prepareStatement(checkId);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				cnt = rs.getInt("cnt");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return cnt;
-	}
 
 	public String idCheck(String id) {
 		/*String json 	= "{ \"id\" : \"%s\", \"result\" : \"%s\" }";*/
@@ -103,5 +88,21 @@ public class DreamLeagueDAO {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	public boolean LoginCheck(String id, String pass) {
+		boolean logCheck = false;
+		
+		String logincheck = "select name from membertbl where id = '"+ id +"' and pass = '"+ pass +"'";
+		try {
+			pstmt 	= conn.prepareStatement(logincheck);
+			rs		= pstmt.executeQuery();
+			if(rs.next()) {
+				logCheck = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return logCheck;
 	}
 }

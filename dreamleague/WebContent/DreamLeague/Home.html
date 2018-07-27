@@ -5,9 +5,6 @@
 		<title>Dream League</title>
 		<link rel="stylesheet" type="text/css" href="Home.css">
 		
-		<!-- 로그인 하는거 구현 해야한다! -->
-		<!-- 나머진 그럭저럭 한듯 -->
-		
 		<script>
 			onload = function(){
 				createMenu();
@@ -15,6 +12,32 @@
 			}
 		</script>
 		
+		<!-- 로그인 시작 -->		
+		<script>
+			function loginPro(){
+				var lBtn = document.getElementById("lBtn");
+				
+				lBtn.addEventListener('click', function(e) {
+					var loProc = new XMLHttpRequest();
+					loProc.onreadystatechange = function(event){
+						if(req.readyState == 4){
+							if(req.status == 200){
+								var resul = JSON.parse(loProc.responseText);
+								if(resul == true){
+									alert('로그인 성공');
+								}else{
+									alert('로그인 실패');
+								}
+							}
+						}
+					}
+					loProc.open('POST', '../lc', true);
+					loProc.send();
+				});
+			}
+		</script>		
+		<!-- 로그인 끝 -->		
+				
 		<!-- 마우스 오버 이벤트 시작 -->
 		<script>
 			function mouseOver(){

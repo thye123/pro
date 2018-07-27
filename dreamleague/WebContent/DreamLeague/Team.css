@@ -6,6 +6,12 @@
 	position		: relative;  
 }
 
+.teamselect{
+	width			: 800px;
+	height			: 600px;
+	border-radius	: 5px;
+}
+
 /* 전체 영역 */
 .backArea{
 	width			: 800px;

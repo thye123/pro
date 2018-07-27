@@ -129,4 +129,18 @@ public class MemberDAO {
 		}
 		return cnt;
 	}
+	
+	public int upMember(String id, String pass, String email, String birth, String zipcode, String address) {
+		
+		try {
+			stmt = conn.createStatement();
+			String sql = "";
+			stmt.executeQuery(sql);
+						
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 }

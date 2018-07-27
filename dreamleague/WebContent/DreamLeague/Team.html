@@ -66,7 +66,7 @@
 				
 				var fistLeague = document.getElementsByClassName('embImg0');
 				var secondLeague = document.getElementsByClassName('embImg1');
-				
+				var teamSelectImg = document.getElementsByClassName('teamselect');
 				//마우스 클릭 시 CSS변경
 				for(var i = 0; i < teamLeague.length; i++){
 					teamLeague[i].addEventListener('click', function(){
@@ -76,6 +76,7 @@
 							this.style.backgroundColor 			= "forestgreen";
 							this.style.color					= "gold";
 							this.style.borderRadius 			= "5px";
+							teamSelectImg[0].style.display			= "none";
 							
 							for(var h = 0; h < team1.length; h++){
 								secondLeague[h].style.display = "none";
@@ -87,6 +88,7 @@
 							this.style.backgroundColor 			= "forestgreen";
 							this.style.color					= "gold";
 							this.style.borderRadius 			= "5px";
+							teamSelectImg[0].style.display			= "none";
 							
 							for(var g = 0; g < team2.length; g++){
 								fistLeague[g].style.display = "none";
@@ -158,7 +160,9 @@
 				<div class="teamArea">
 					<div class="teamLeague"><p>1부</p></div>
 					<div class="teamLeague"><p>2부</p></div>
-					<div class="teamLogo"></div>
+					<div class="teamLogo">
+						<img src="imgs/teamselect.jpg" class="teamselect">
+					</div>
 				</div>
 			</div>
 			<!-- 내용 영역 끝 -->
