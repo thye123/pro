@@ -7,7 +7,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Dream League</title>
-		<link rel="stylesheet" type="text/css" href="Home.css">
+		<link rel="stylesheet" type="text/css" href="./DreamLeague/Home.css">
 		
 		<script>
 			onload = function(){
@@ -36,7 +36,7 @@
 								var teamA 		= document.createElement('div');
 								teamA.setAttribute('class', 'teamA');
 								var textImg		= document.createElement('img');
-								textImg.setAttribute('src', 'imgs/content.png');
+								textImg.setAttribute('src', './DreamLeague/imgs/content.png');
 								textImg.setAttribute('id', 'conImgTeam');
 								var textP		= document.createElement('p');
 								teamA.appendChild(textP);
@@ -59,7 +59,7 @@
 								var TransF 		= document.createElement('div');
 								TransF.setAttribute('class', 'TransF');
 								var textImg		= document.createElement('img');
-								textImg.setAttribute('src', 'imgs/content.png');
+								textImg.setAttribute('src', './DreamLeague/imgs/content.png');
 								textImg.setAttribute('id', 'conImgTrans');
 								var textP		= document.createElement('p');
 								TransF.appendChild(textP);
@@ -82,7 +82,7 @@
 								var RankR = document.createElement('div');
 								RankR.setAttribute('class', 'RankR');
 								var textImg		= document.createElement('img');
-								textImg.setAttribute('src', 'imgs/content.png');
+								textImg.setAttribute('src', './DreamLeague/imgs/content.png');
 								textImg.setAttribute('id', 'conImgRank');
 								var textP		= document.createElement('p');
 								RankR.appendChild(textP);
@@ -104,7 +104,7 @@
 								var MatchM		= document.createElement('div');
 								MatchM.setAttribute('class', 'MatchM');
 								var textImg		= document.createElement('img');
-								textImg.setAttribute('src', 'imgs/content.png');
+								textImg.setAttribute('src', './DreamLeague/imgs/content.png');
 								textImg.setAttribute('id', 'conImgMatch');
 								var textP		= document.createElement('p');
 								MatchM.appendChild(textP);
@@ -138,10 +138,17 @@
 				for(var i = 0; i < menu.length; i++){
 					var aTag 	 = document.createElement("a");
 					var menuText = document.createTextNode(menuKor[i]);
-					aTag.setAttribute("href", menu[i] + ".html");
-					aTag.setAttribute("id", menu[i]);
-					aTag.appendChild(menuText);
-					menuArea[0].appendChild(aTag);
+					if(i == 0){
+						aTag.setAttribute("href", "#");
+						aTag.setAttribute("id", menu[i]);
+						aTag.appendChild(menuText);
+						menuArea[0].appendChild(aTag);
+					}else{
+						aTag.setAttribute("href", "./DreamLeague/"+menu[i] + ".html");
+						aTag.setAttribute("id", menu[i]);
+						aTag.appendChild(menuText);
+						menuArea[0].appendChild(aTag);
+					}
 				}
 			}
 		</script>
@@ -153,7 +160,7 @@
 		<div class = "main">
 			<div class="top">
 				<!-- 타이틀 이미지 -->
-				<img alt="메인 타이틀" src="imgs/메인 타이틀.png" id="titleImg">
+				<img alt="메인 타이틀" src="./DreamLeague/imgs/메인 타이틀.png" id="titleImg">
 				<% 
 					if(TF == false){
 				%>
@@ -194,7 +201,7 @@
 			
 			<!-- 내용 영역 시작 -->
 			<div class="board">
-				<img alt="감독실" src="imgs/main.png" id="mainImg" usemap="#gandi">
+				<img alt="감독실" src="./DreamLeague/imgs/main.png" id="mainImg" usemap="#gandi">
 				<map name="gandi">
 					<area shape="rect" alt="팀관리" coords="410,228,600,335" href="Team.html">
 					<area shape="rect" alt="이적시장" coords="614,342,699,395" href="TransFer.html">

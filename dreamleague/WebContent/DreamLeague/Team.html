@@ -67,6 +67,7 @@
 				var fistLeague = document.getElementsByClassName('embImg0');
 				var secondLeague = document.getElementsByClassName('embImg1');
 				var teamSelectImg = document.getElementsByClassName('teamselect');
+				
 				//마우스 클릭 시 CSS변경
 				for(var i = 0; i < teamLeague.length; i++){
 					teamLeague[i].addEventListener('click', function(){
@@ -97,10 +98,20 @@
 						}
 					});
 				};
-				var clDiv = document.getElementsByClassName("");
-				/* for(var w = 0; w < 2; w++){
+				
+								
+				//팀 선택하는 기능
+				for(var h = 0; h < fistLeague.length; h++){
+					fistLeague[h].addEventListener('click', function(e) {
+						var childrenName = this.children;
+						var teamName 	 = childrenName[0].childNodes[1].textContent;
+					});
 					
-				} */
+					secondLeague[h].addEventListener('click', function(e) {
+						var childrenName = this.children;
+						var teamName 	 = childrenName[0].childNodes[1].textContent;
+					});
+				} 
 			}
 		</script>		
 		<!-- 팀 엠블럼 및 radio button생성 끝 -->
