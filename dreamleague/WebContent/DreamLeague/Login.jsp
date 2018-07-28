@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	boolean TF = (boolean)request.getAttribute("TF");
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -150,25 +154,38 @@
 			<div class="top">
 				<!-- 타이틀 이미지 -->
 				<img alt="메인 타이틀" src="imgs/메인 타이틀.png" id="titleImg">
-				<!-- 로그인 시작 -->
-				<div class="login">
-					<form method="post" action="../lc" id="logCheck">
-						<div class="inputArea">
-							<p>아이디: </p>
-							<input type="text" name="userid" id="userId">
-							<input type="submit" value="로그인">
-							<p>비밀번호: </p>
-							<input type="password" name="userpass" id="userPass">
+				<% 
+					if(TF == false){
+				%>
+					<!-- 로그인 시작 -->
+					<div class="login">
+						<form method="post" action="../lc" id="logCheck">
+							<div class="inputArea">
+								<p>아이디: </p>
+								<input type="text" name="userid" id="userId">
+								<input type="submit" value="로그인">
+								<p>비밀번호: </p>
+								<input type="password" name="userpass" id="userPass">
+							</div>
+						</form>
+						<div class="etcArea">
+							<a href="#" id="findId">아이디</a>
+							<p>/</p>
+							<a href="#" id="findPass">비밀번호 찾기</a> 
+							<a href="resister.html" id="register">회원가입</a>
 						</div>
-					</form>
-					<div class="etcArea">
-						<a href="#" id="findId">아이디</a>
-						<p>/</p>
-						<a href="#" id="findPass">비밀번호 찾기</a> 
-						<a href="resister.html" id="register">회원가입</a>
 					</div>
-				</div>
-				<!-- 로그인 끝 -->		
+					<!-- 로그인 끝 -->		
+				<% }else{ %>
+					<div class="login">
+						<div class="inputArea">
+							<h2>로그인 했다.</h2>
+						</div>
+						<div class="etcArea">
+							<h2>진짜 했다.</h2>
+						</div>
+					</div>
+				<% } %>
 			</div>
 
 			<!-- 메뉴 시작 -->
